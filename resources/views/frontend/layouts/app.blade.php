@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Inner Page - BizLand Bootstrap Template</title>
+    <title>PiknikIn Banyuwangi</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
