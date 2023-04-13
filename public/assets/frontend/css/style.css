@@ -10,7 +10,8 @@
 # General
 --------------------------------------------------------------*/
 body {
-  font-family: "Open Sans", sans-serif;
+  /* font-family: "Open Sans", sans-serif; */
+  font-family: 'Poppins', sans-serif;
   color: #444444;
 }
 
@@ -116,7 +117,9 @@ h6 {
 # Top Bar
 --------------------------------------------------------------*/
 #topbar {
-  background: #106eea;
+  /* background: #106eea; */
+  background-color: #045de9;
+  background-image: linear-gradient(315deg, #045de9 0%, #00baee 74%);
   height: 40px;
   font-size: 14px;
   transition: all 0.5s;
@@ -458,17 +461,35 @@ h6 {
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
+#custom-bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+#custom-bg-video::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 #hero {
   width: 100%;
   height: 75vh;
-  background: url("../img/hero-bg.jpg") top left;
-  background-size: cover;
   position: relative;
 }
 
 #hero:before {
   content: "";
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(0, 0, 0, 0.5);
   position: absolute;
   bottom: 0;
   top: 0;
@@ -685,9 +706,9 @@ section {
 }
 
 /*--------------------------------------------------------------
-# Featured Services
+# Custom Reason
 --------------------------------------------------------------*/
-.featured-services .icon-box {
+.custom-reason .icon-box {
   padding: 30px;
   position: relative;
   overflow: hidden;
@@ -698,7 +719,7 @@ section {
   z-index: 1;
 }
 
-.featured-services .icon-box::before {
+.custom-reason .icon-box::before {
   content: "";
   position: absolute;
   background: #cbe0fb;
@@ -710,45 +731,45 @@ section {
   z-index: -1;
 }
 
-.featured-services .icon-box:hover::before {
+.custom-reason .icon-box:hover::before {
   background: #106eea;
   top: 0;
   border-radius: 0px;
 }
 
-.featured-services .icon {
+.custom-reason .icon {
   margin-bottom: 15px;
 }
 
-.featured-services .icon i {
+.custom-reason .icon i {
   font-size: 48px;
   line-height: 1;
   color: #106eea;
   transition: all 0.3s ease-in-out;
 }
 
-.featured-services .title {
+.custom-reason .title {
   font-weight: 700;
   margin-bottom: 15px;
   font-size: 18px;
 }
 
-.featured-services .title a {
+.custom-reason .title span {
   color: #111;
 }
 
-.featured-services .description {
+.custom-reason .description {
   font-size: 15px;
   line-height: 28px;
   margin-bottom: 0;
 }
 
-.featured-services .icon-box:hover .title a,
-.featured-services .icon-box:hover .description {
+.custom-reason .icon-box:hover .title span,
+.custom-reason .icon-box:hover .description {
   color: #fff;
 }
 
-.featured-services .icon-box:hover .icon i {
+.custom-reason .icon-box:hover .icon i {
   color: #fff;
 }
 
@@ -883,26 +904,29 @@ section {
 }
 
 /*--------------------------------------------------------------
-# Clients
+# custom-request-trip
 --------------------------------------------------------------*/
-.clients {
+.custom-request-trip {
+  background-color: #045de9;
+  background-image: linear-gradient(315deg, #045de9 0%, #00baee 74%);
+  color: #fff;
   padding: 15px 0;
   text-align: center;
 }
 
-.clients img {
+.custom-request-trip img {
   max-width: 45%;
   transition: all 0.4s ease-in-out;
   display: inline-block;
   padding: 15px 0;
 }
 
-.clients img:hover {
+.custom-request-trip img:hover {
   transform: scale(1.15);
 }
 
 @media (max-width: 768px) {
-  .clients img {
+  .custom-request-trip img {
     max-width: 40%;
   }
 }
@@ -1245,13 +1269,13 @@ section {
 }
 
 /*--------------------------------------------------------------
-# Team
+# custom-packet
 --------------------------------------------------------------*/
-.team {
+.custom-packet {
   padding: 60px 0;
 }
 
-.team .member {
+.custom-packet .custom-card-packet {
   margin-bottom: 20px;
   overflow: hidden;
   border-radius: 4px;
@@ -1259,12 +1283,12 @@ section {
   box-shadow: 0px 2px 15px rgba(16, 110, 234, 0.15);
 }
 
-.team .member .member-img {
+.custom-packet .custom-card-packet .custom-card-packet-img {
   position: relative;
   overflow: hidden;
 }
 
-.team .member .social {
+.custom-packet .custom-card-packet .social {
   position: absolute;
   left: 0;
   bottom: 30px;
@@ -1274,11 +1298,11 @@ section {
   text-align: center;
 }
 
-.team .member .social a {
+.custom-packet .custom-card-packet .social a {
   transition: color 0.3s;
   color: #222222;
   margin: 0 3px;
-  padding-top: 7px;
+  padding-top: 5px;
   border-radius: 4px;
   width: 36px;
   height: 36px;
@@ -1288,40 +1312,122 @@ section {
   color: #fff;
 }
 
-.team .member .social a:hover {
+.custom-packet .custom-card-packet .social a:hover {
   background: #3b8af2;
 }
 
-.team .member .social i {
+.custom-packet .custom-card-packet .social i {
   font-size: 18px;
 }
 
-.team .member .member-info {
+.custom-packet .custom-card-packet .custom-card-packet-info {
   padding: 25px 15px;
 }
 
-.team .member .member-info h4 {
+.custom-packet .custom-card-packet .custom-card-packet-info h4 {
   font-weight: 700;
   margin-bottom: 5px;
   font-size: 18px;
   color: #222222;
 }
 
-.team .member .member-info span {
+.custom-packet .custom-card-packet .custom-card-packet-info span {
   display: block;
   font-size: 13px;
   font-weight: 400;
   color: #aaaaaa;
 }
 
-.team .member .member-info p {
+.custom-packet .custom-card-packet .custom-card-packet-info p {
   font-style: italic;
   font-size: 14px;
   line-height: 26px;
   color: #777777;
 }
 
-.team .member:hover .social {
+.custom-packet .custom-card-packet:hover .social {
+  opacity: 1;
+  bottom: 15px;
+}
+
+/*--------------------------------------------------------------
+# custom-article
+--------------------------------------------------------------*/
+.custom-article {
+  padding: 60px 0;
+}
+
+.custom-article .custom-card-article {
+  margin-bottom: 20px;
+  overflow: hidden;
+  border-radius: 4px;
+  background: #fff;
+  box-shadow: 0px 2px 15px rgba(16, 110, 234, 0.15);
+}
+
+.custom-article .custom-card-article .custom-card-article-img {
+  position: relative;
+  overflow: hidden;
+}
+
+.custom-article .custom-card-article .social {
+  position: absolute;
+  left: 0;
+  bottom: 30px;
+  right: 0;
+  opacity: 0;
+  transition: ease-in-out 0.3s;
+  text-align: center;
+}
+
+.custom-article .custom-card-article .social a {
+  transition: color 0.3s;
+  color: #222222;
+  margin: 0 3px;
+  padding-top: 5px;
+  border-radius: 4px;
+  width: 36px;
+  height: 36px;
+  background: rgba(16, 110, 234, 0.8);
+  display: inline-block;
+  transition: ease-in-out 0.3s;
+  color: #fff;
+}
+
+.custom-article .custom-card-article .social a:hover {
+  background: #3b8af2;
+}
+
+.custom-article .custom-card-article .social i {
+  font-size: 18px;
+}
+
+.custom-article .custom-card-article .custom-card-article-info {
+  padding: 25px 15px;
+}
+
+.custom-article .custom-card-article .custom-card-article-info h4 {
+  font-weight: 700;
+  margin-bottom: 5px;
+  font-size: 18px;
+  color: #222222;
+}
+
+.custom-article .custom-card-article .custom-card-article-info span {
+  display: block;
+  font-size: 13px;
+  font-weight: 400;
+  color: #aaaaaa;
+}
+
+.custom-article .custom-card-article .custom-card-article-info p {
+  font-style: italic;
+  font-size: 14px;
+  line-height: 26px;
+  color: #777777;
+}
+
+.custom-article .custom-card-article:hover .social {
   opacity: 1;
   bottom: 15px;
 }
@@ -1805,4 +1911,25 @@ section {
     text-align: center;
     padding: 2px 0;
   }
+}
+
+/* Start Gallery CSS */
+.thumb {
+	margin-bottom: 15px;
+}
+.thumb:last-child {
+	margin-bottom: 0;
+}
+/* CSS Image Hover Effects: https://www.nxworld.net/tips/css-image-hover-effects.html */
+.thumb 
+figure img {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+}
+.thumb 
+figure:hover img {
+  -webkit-filter: grayscale(0);
+  filter: grayscale(0);
 }

@@ -1,6 +1,9 @@
 <header id="header" class="d-flex align-items-center">
     <div class="container d-flex align-items-center justify-content-between">
-        <h1 class="logo"><a href="{{url('/')}}">Piknik<span>In.</span></a></h1>
+        <h1 class="logo">
+            <img src="{{asset('assets/frontend/img/apple-touch-icon.png')}}" alt="logo">
+            <a href="{{url('/')}}">Piknik<span>In.</span></a>
+        </h1>
         <nav id="navbar" class="navbar">
             <ul>
                 <li><a class="nav-link scrollto @if (Request::segment(1) == '') active @endif" href="{{url('/')}}">Beranda</a></li>
@@ -8,7 +11,7 @@
                 <li><a class="nav-link scrollto" href="{{url('/tour-packages')}}">Paket Wisata</a></li>
                 <li><a class="nav-link scrollto" href="{{url('/promo')}}">Promo</a></li>
                 <li><a class="nav-link scrollto" href="{{url('/article')}}">Artikel</a></li>
-                <li><a class="nav-link scrollto" href="{{url('/about-me')}}">Tentang Kami</a></li>
+                <li><a class="nav-link scrollto" href="{{url('/about-us')}}">Tentang Kami</a></li>
                 {{-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
                         <li><a href="#">Drop Down 1</a></li>

@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.layouts.app');
-});
+Route::get('/', [App\Http\Controllers\Frontend\HomeController::class, 'home']);
 
 Auth::routes();
 
