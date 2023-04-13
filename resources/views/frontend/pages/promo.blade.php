@@ -1,9 +1,9 @@
 @extends('frontend.layouts.app')
 @section('hero')
-<section id="hero" class="d-flex align-items-center" style="background-size: cover; background-image: url('{{ asset('assets/frontend/img/hero-article.jpg')}}');">
+<section id="hero" class="d-flex align-items-center" style="background-size: cover; background-image: url('{{ asset('assets/frontend/img/hero-promo.jpg')}}');">
     <div class="container" data-aos="zoom-out" data-aos-delay="100">
-        <h1 class="text-white">Artikel Piknik<span>In.</span></h1>
-        <p class="my-3 text-white">PiknikIn merupakan lorem ipsum dolor sit amet consectetur adipisicing elit. Quod sequi cumque veniam eius autem corporis numquam, odio enim amet cum totam explicabo voluptas ducimus facere eos distinctio, dolore error quasi?</p>
+        <h1 class="text-white">Promo Di Piknik<span>In.</span></h1>
+        <p class="my-3 text-white">Promo PiknikIn merupakan lorem ipsum dolor sit amet consectetur adipisicing elit. Quod sequi cumque veniam eius autem corporis numquam, odio enim amet cum totam explicabo voluptas ducimus facere eos distinctio, dolore error quasi?</p>
     </div>
 </section>
 @endsection
@@ -15,16 +15,13 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h2 class="text-center" style="height: 90px;">
-                            <strong>Temukan Artikel Menarik Disini</strong>
+                            <strong>Temukan Promo Menarik Disini</strong>
                         </h2>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
                         <article class="postcard light blue">
-                            <a class="postcard__img_link" href="#">
-                                <img class="postcard__img" src="{{asset('assets/upload/packet/kawah-ijen.jpeg')}}" alt="Image Title" />
-                            </a>
                             <div class="postcard__text t-dark">
                                 <h1 class="postcard__title blue"><a href="#">Podcast Title</a></h1>
                                 <div class="postcard__subtitle small">
@@ -35,16 +32,16 @@
                                 <div class="postcard__bar"></div>
                                 <div class="postcard__preview-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero. Eveniet ipsam adipisci illo iusto quibusdam, sunt neque nulla unde ipsum dolores nobis enim quidem excepturi, illum quos!</div>
                                 <div>
-                                    <a href="{{url('/article/detail')}}" class="btn btn-outline-primary mt-3 fs-8">Lebih Detail</a>
+                                    <a href="{{url('/promo/detail')}}" class="btn btn-outline-primary mt-3 fs-8">Lebih Detail</a>
                                 </div>
                             </div>
+                            <a class="postcard__img_link" href="#">
+                                <img class="postcard__img" src="{{asset('assets/upload/packet/kawah-ijen.jpeg')}}" alt="Image Title" />
+                            </a>
                         </article>
                     </div>
                     <div class="col-md-12">
                         <article class="postcard light blue">
-                            <a class="postcard__img_link" href="#">
-                                <img class="postcard__img" src="{{asset('assets/upload/packet/kawah-ijen.jpeg')}}" alt="Image Title" />
-                            </a>
                             <div class="postcard__text t-dark">
                                 <h1 class="postcard__title blue"><a href="#">Podcast Title</a></h1>
                                 <div class="postcard__subtitle small">
@@ -55,16 +52,16 @@
                                 <div class="postcard__bar"></div>
                                 <div class="postcard__preview-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero. Eveniet ipsam adipisci illo iusto quibusdam, sunt neque nulla unde ipsum dolores nobis enim quidem excepturi, illum quos!</div>
                                 <div>
-                                    <a href="{{url('/article/detail')}}" class="btn btn-outline-primary mt-3 fs-8">Lebih Detail</a>
+                                    <a href="{{url('/promo/detail')}}" class="btn btn-outline-primary mt-3 fs-8">Lebih Detail</a>
                                 </div>
                             </div>
+                            <a class="postcard__img_link" href="#">
+                                <img class="postcard__img" src="{{asset('assets/upload/packet/kawah-ijen.jpeg')}}" alt="Image Title" />
+                            </a>
                         </article>
                     </div>
                     <div class="col-md-12">
                         <article class="postcard light blue">
-                            <a class="postcard__img_link" href="#">
-                                <img class="postcard__img" src="{{asset('assets/upload/packet/kawah-ijen.jpeg')}}" alt="Image Title" />
-                            </a>
                             <div class="postcard__text t-dark">
                                 <h1 class="postcard__title blue"><a href="#">Podcast Title</a></h1>
                                 <div class="postcard__subtitle small">
@@ -75,49 +72,12 @@
                                 <div class="postcard__bar"></div>
                                 <div class="postcard__preview-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero. Eveniet ipsam adipisci illo iusto quibusdam, sunt neque nulla unde ipsum dolores nobis enim quidem excepturi, illum quos!</div>
                                 <div>
-                                    <a href="{{url('/article/detail')}}" class="btn btn-outline-primary mt-3 fs-8">Lebih Detail</a>
+                                    <a href="{{url('/promo/detail')}}" class="btn btn-outline-primary mt-3 fs-8">Lebih Detail</a>
                                 </div>
                             </div>
-                        </article>
-                    </div>
-                    <div class="col-md-12">
-                        <article class="postcard light blue">
                             <a class="postcard__img_link" href="#">
                                 <img class="postcard__img" src="{{asset('assets/upload/packet/kawah-ijen.jpeg')}}" alt="Image Title" />
                             </a>
-                            <div class="postcard__text t-dark">
-                                <h1 class="postcard__title blue"><a href="#">Podcast Title</a></h1>
-                                <div class="postcard__subtitle small">
-                                    <time datetime="2020-05-25 12:00:00">
-                                        <i class="fas fa-calendar-alt mr-2"></i>Mon, May 25th 2020
-                                    </time>
-                                </div>
-                                <div class="postcard__bar"></div>
-                                <div class="postcard__preview-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero. Eveniet ipsam adipisci illo iusto quibusdam, sunt neque nulla unde ipsum dolores nobis enim quidem excepturi, illum quos!</div>
-                                <div>
-                                    <a href="{{url('/article/detail')}}" class="btn btn-outline-primary mt-3 fs-8">Lebih Detail</a>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col-md-12">
-                        <article class="postcard light blue">
-                            <a class="postcard__img_link" href="#">
-                                <img class="postcard__img" src="{{asset('assets/upload/packet/kawah-ijen.jpeg')}}" alt="Image Title" />
-                            </a>
-                            <div class="postcard__text t-dark">
-                                <h1 class="postcard__title blue"><a href="#">Podcast Title</a></h1>
-                                <div class="postcard__subtitle small">
-                                    <time datetime="2020-05-25 12:00:00">
-                                        <i class="fas fa-calendar-alt mr-2"></i>Mon, May 25th 2020
-                                    </time>
-                                </div>
-                                <div class="postcard__bar"></div>
-                                <div class="postcard__preview-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero. Eveniet ipsam adipisci illo iusto quibusdam, sunt neque nulla unde ipsum dolores nobis enim quidem excepturi, illum quos!</div>
-                                <div>
-                                    <a href="{{url('/article/detail')}}" class="btn btn-outline-primary mt-3 fs-8">Lebih Detail</a>
-                                </div>
-                            </div>
                         </article>
                     </div>
                 </div>

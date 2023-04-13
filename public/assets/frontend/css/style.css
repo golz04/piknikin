@@ -1357,7 +1357,7 @@ section {
   padding: 60px 0;
 }
 
-.custom-article .custom-card-article {
+.custom-card-article {
   margin-bottom: 20px;
   overflow: hidden;
   border-radius: 4px;
@@ -1365,12 +1365,12 @@ section {
   box-shadow: 0px 2px 15px rgba(16, 110, 234, 0.15);
 }
 
-.custom-article .custom-card-article .custom-card-article-img {
+.custom-card-article .custom-card-article-img {
   position: relative;
   overflow: hidden;
 }
 
-.custom-article .custom-card-article .social {
+.custom-card-article .social {
   position: absolute;
   left: 0;
   bottom: 30px;
@@ -1380,7 +1380,7 @@ section {
   text-align: center;
 }
 
-.custom-article .custom-card-article .social a {
+.custom-card-article .social a {
   transition: color 0.3s;
   color: #222222;
   margin: 0 3px;
@@ -1394,40 +1394,40 @@ section {
   color: #fff;
 }
 
-.custom-article .custom-card-article .social a:hover {
+.custom-card-article .social a:hover {
   background: #3b8af2;
 }
 
-.custom-article .custom-card-article .social i {
+.custom-card-article .social i {
   font-size: 18px;
 }
 
-.custom-article .custom-card-article .custom-card-article-info {
+.custom-card-article .custom-card-article-info {
   padding: 25px 15px;
 }
 
-.custom-article .custom-card-article .custom-card-article-info h4 {
+.custom-card-article .custom-card-article-info h4 {
   font-weight: 700;
   margin-bottom: 5px;
   font-size: 18px;
   color: #222222;
 }
 
-.custom-article .custom-card-article .custom-card-article-info span {
+.custom-card-article .custom-card-article-info span {
   display: block;
   font-size: 13px;
   font-weight: 400;
   color: #aaaaaa;
 }
 
-.custom-article .custom-card-article .custom-card-article-info p {
+.custom-card-article .custom-card-article-info p {
   font-style: italic;
   font-size: 14px;
   line-height: 26px;
   color: #777777;
 }
 
-.custom-article .custom-card-article:hover .social {
+.custom-card-article:hover .social {
   opacity: 1;
   bottom: 15px;
 }
@@ -1445,7 +1445,7 @@ section {
   overflow: hidden;
 }
 
-.pricing .box h3 {
+.box h3 {
   font-weight: 400;
   margin: -20px -20px 20px -20px;
   padding: 20px 15px;
@@ -1455,7 +1455,7 @@ section {
   background: #f8f8f8;
 }
 
-.pricing .box h4 {
+.box h4 {
   font-size: 36px;
   color: #106eea;
   font-weight: 600;
@@ -1463,19 +1463,19 @@ section {
   margin-bottom: 20px;
 }
 
-.pricing .box h4 sup {
+.box h4 sup {
   font-size: 20px;
   top: -15px;
   left: -3px;
 }
 
-.pricing .box h4 span {
+.box h4 span {
   color: #bababa;
   font-size: 16px;
   font-weight: 300;
 }
 
-.pricing .box ul {
+.box ul {
   padding: 0;
   list-style: none;
   color: #444444;
@@ -1484,29 +1484,29 @@ section {
   font-size: 14px;
 }
 
-.pricing .box ul li {
+.box ul li {
   padding-bottom: 16px;
 }
 
-.pricing .box ul i {
+.box ul i {
   color: #106eea;
   font-size: 18px;
   padding-right: 4px;
 }
 
-.pricing .box ul .na {
+.box ul .na {
   color: #ccc;
   text-decoration: line-through;
 }
 
-.pricing .btn-wrap {
+.btn-wrap {
   margin: 20px -20px -20px -20px;
   padding: 20px 15px;
   background: #f8f8f8;
   text-align: center;
 }
 
-.pricing .btn-buy {
+.btn-buy {
   background: #106eea;
   display: inline-block;
   padding: 8px 35px 10px 35px;
@@ -1520,16 +1520,16 @@ section {
   transition: 0.3s;
 }
 
-.pricing .btn-buy:hover {
+.btn-buy:hover {
   background: #3b8af2;
 }
 
-.pricing .featured h3 {
+.featured h3 {
   color: #fff;
   background: #106eea;
 }
 
-.pricing .advanced {
+.advanced {
   width: 200px;
   position: absolute;
   top: 18px;
@@ -2119,4 +2119,64 @@ figure:hover img {
   .blue:nth-child(2n)::before {
     background-image: linear-gradient(80deg, rgba(0, 118, 189, 0.1), transparent 50%);
  }
+}
+.card-sl {
+  border-radius: 8px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.card-image img {
+  max-height: 100%;
+  max-width: 100%;
+  border-radius: 8px 8px 0px 0;
+}
+
+.card-action {
+  position: relative;
+  float: right;
+  margin-top: -25px;
+  margin-right: 20px;
+  z-index: 2;
+  color: #E26D5C;
+  background: #fff;
+  border-radius: 100%;
+  padding: 15px;
+  font-size: 15px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.19);
+}
+
+.card-action:hover {
+  color: #fff;
+  background: #E26D5C;
+  -webkit-animation: pulse 1.5s infinite;
+}
+
+.card-heading {
+  font-size: 18px;
+  font-weight: bold;
+  background: #fff;
+  padding: 10px 15px;
+}
+
+.card-text {
+  padding: 10px 15px;
+  background: #fff;
+  font-size: 14px;
+  color: #636262;
+}
+
+.card-button {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  width: 100%;
+  background-color: #1F487E;
+  color: #fff;
+  border-radius: 0 0 8px 8px;
+}
+
+.card-button:hover {
+  text-decoration: none;
+  background-color: #1D3461;
+  color: #fff;
 }
