@@ -156,7 +156,7 @@
             </div>
             <div class="col-md-4 d-flex align-items-center justify-content-center">
                 <div>
-                    <a href="{{url('/tour-packages')}}" class="rounded-2 btn btn-outline-light m-auto">Buat Tripmu Sendiri &nbsp;&nbsp;<i class="bx bx-trip"></i></a>
+                    <a href="{{url('/tour-packages/request')}}" class="rounded-2 btn btn-outline-light m-auto">Buat Tripmu Sendiri &nbsp;&nbsp;<i class="bx bx-trip"></i></a>
                 </div>
             </div>
         </div>
