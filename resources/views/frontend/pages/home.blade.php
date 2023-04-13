@@ -217,7 +217,7 @@
                         <P>APRIL, 2023</P>
                         <h4 style="height: 60px;">Jawa Timur Park 4 Banyuwangi, Wisata Edukasi Budaya Banyuwangi Hingga Museum Santet</h4>
                         <span class="mt-3" style="height: 50px;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus, alias?</span>
-                        <a href="#" class="btn btn-outline-primary fs-8">Lebih Detail</a>
+                        <a href="{{url('/article/detail')}}" class="btn btn-outline-primary fs-8">Lebih Detail</a>
                     </div>
                 </div>
             </div>
@@ -233,7 +233,7 @@
                         <P>APRIL, 2023</P>
                         <h4 style="height: 60px;">Banyuwangi Festival 2023, Jadwal Pelaksanaan dan Informasi Terkini</h4>
                         <span class="mt-3" style="height: 50px;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus, alias?</span>
-                        <a href="#" class="btn btn-outline-primary fs-8">Lebih Detail</a>
+                        <a href="{{url('/article/detail')}}" class="btn btn-outline-primary fs-8">Lebih Detail</a>
                     </div>
                 </div>
             </div>
@@ -249,7 +249,7 @@
                         <P>APRIL, 2023</P>
                         <h4 style="height: 60px;">Menyambut Banyuwangi Ethno Carnival BEC 2022: Taman Sarine Nusantara</h4>
                         <span class="mt-3" style="height: 50px;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus, alias?</span>
-                        <a href="#" class="btn btn-outline-primary fs-8">Lebih Detail</a>
+                        <a href="{{url('/article/detail')}}" class="btn btn-outline-primary fs-8">Lebih Detail</a>
                     </div>
                 </div>
             </div>
