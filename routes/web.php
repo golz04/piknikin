@@ -20,6 +20,7 @@ Route::get('/tour-packages', [App\Http\Controllers\Frontend\TourPackageControlle
 Route::get('/tour-packages/request', [App\Http\Controllers\Frontend\TourPackageController::class, 'request']);
 Route::get('/promo', [App\Http\Controllers\Frontend\PromoController::class, 'index']);
 Route::get('/article', [App\Http\Controllers\Frontend\ArticleController::class, 'index']);
+Route::get('/article/detail', [App\Http\Controllers\Frontend\ArticleController::class, 'detail']);
 Route::get('/about-us', [App\Http\Controllers\Frontend\AboutController::class, 'index']);
 
 Auth::routes();

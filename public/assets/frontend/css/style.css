@@ -2217,3 +2217,17 @@ figure:hover img {
 #ratings .rating__input:hover ~ .rating__label .rating__icon--star {
   color: #ddd;
 }
+
+.custom-hero-detail-article{
+  text-align: center;
+  color: #222222;
+  font-family: "Poppins", sans-serif;
+}
+.custom-hero-detail-article h1{
+  font-weight: bold;
+  text-transform: capitalize;
+}
+.custom-hero-detail-article p{
+  font-weight: 600;
+  text-transform: uppercase;
+}
