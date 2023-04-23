@@ -20,7 +20,7 @@ class TourPackageController extends Controller
 
     public function request(){
         try {
-            return view('frontend.pages.tour-package-trip');
+            return view('frontend.pages.tour-package-request');
         } catch (\Exception $e) {
             return redirect()->back()->withError($e->getMessage());
         } catch (\Illuminate\Database\QueryException $e) {

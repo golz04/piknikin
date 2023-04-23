@@ -2154,7 +2154,7 @@ figure:hover img {
 .card-action:hover {
   color: #fff;
   background: #E26D5C;
-  -webkit-animation: pulse 1.5s infinite;
+  /* -webkit-animation: pulse 1.5s infinite; */
 }
 
 .card-heading {
@@ -2185,4 +2185,35 @@ figure:hover img {
   text-decoration: none;
   background-color: #1D3461;
   color: #fff;
+}
+
+#ratings .rating-group {
+  display: inline-flex;
+}
+#ratings .rating__icon {
+  pointer-events: none;
+}
+#ratings .rating__input {
+  position: absolute !important;
+  left: -9999px !important;
+}
+#ratings .rating__input--none {
+  display: none;
+}
+#ratings .rating__label {
+  cursor: pointer;
+  padding: 0 0.1em;
+  font-size: 2rem;
+}
+#ratings .rating__icon--star {
+  color: orange;
+}
+#ratings .rating__input:checked ~ .rating__label .rating__icon--star {
+  color: #ddd;
+}
+#ratings .rating-group:hover .rating__label .rating__icon--star {
+  color: orange;
+}
+#ratings .rating__input:hover ~ .rating__label .rating__icon--star {
+  color: #ddd;
 }

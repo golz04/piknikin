@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [App\Http\Controllers\Frontend\HomeController::class, 'index']);
 Route::get('/rental', [App\Http\Controllers\Frontend\RentalController::class, 'index']);
+Route::get('/rental/detail', [App\Http\Controllers\Frontend\RentalController::class, 'detail']);
 Route::get('/tour-packages', [App\Http\Controllers\Frontend\TourPackageController::class, 'index']);
 Route::get('/tour-packages/request', [App\Http\Controllers\Frontend\TourPackageController::class, 'request']);
 Route::get('/promo', [App\Http\Controllers\Frontend\PromoController::class, 'index']);
