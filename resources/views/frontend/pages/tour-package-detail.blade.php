@@ -2,8 +2,7 @@
 @section('hero')
 <section id="hero" class="d-flex align-items-center" style="background-size: cover; background-image: url('{{ asset('assets/upload/banner-rental/rental-mobil.jpg')}}');">
     <div class="container" data-aos="zoom-out" data-aos-delay="100">
-        <h1 class="text-white"><span>Sewa Mobil</span></h1>
-        <p class="my-3 text-white">Rental kendaraan PiknikIn merupakan lorem ipsum dolor sit amet consectetur adipisicing elit. Quod sequi cumque veniam eius autem corporis numquam, odio enim amet cum totam explicabo voluptas ducimus facere eos distinctio, dolore error quasi?</p>
+        <h1 class="text-white">Paket Wisata 4 Hari 3 Malam</h1>
     </div>
 </section>
 @endsection
@@ -12,35 +11,38 @@
     <div class="container" data-aos="fade-up">
         <div class="row mt-3">
             <div class="col-md-8">
-                <img class="img-fluid" src="https://via.placeholder.com/750x500" alt="">
+                <img class="img-fluid" src="https://via.placeholder.com/850x500" alt="">
             </div>
-            <div class="col-md-4">
-                <div class="row">
-                    <div class="col-md-12">
-                        <a href="{{url('/call')}}" class="rounded-2 btn btn-outline-success m-auto">Chat Via Whatsapp</a>
-                    </div>
+            <div class="col-md-4 d-flex align-items-center justify-content-center">
+                <div>
+                    <a href="{{url('/call')}}" class="rounded-2 btn btn-outline-success m-auto">Chat Via Whatsapp</a>
+                    <h3 class="my-3">Deskripsi Singkat</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim.</p>
                 </div>
-                <h3 class="my-3">Tipe dan Harga Sewa</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim.</p>
-                <h3 class="my-3">Syarat dan Ketentuan</h3>
-                <ul>
-                    <li>Lorem Ipsum</li>
-                    <li>Dolor Sit Amet</li>
-                    <li>Consectetur</li>
-                    <li>Adipiscing Elit</li>
-                </ul>
             </div>
-            <div class="col-md-12 mt-2">
-                <h3 class="my-3">Faq</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci distinctio doloremque aliquam labore quaerat recusandae voluptates architecto commodi? Sit quod odio aliquam neque quae perspiciatis, veritatis nisi consequuntur! Nulla, quas magni sint iusto quasi nisi dicta possimus sit fuga, nam atque fugiat a. Tempore fugiat sunt dolorem illum molestias eum cupiditate cum incidunt! Est neque, ex minima quaerat perferendis quos maiores exercitationem rem nihil eligendi et inventore, repellendus itaque quas mollitia reprehenderit vel corrupti ut? A soluta in est ea? Amet cupiditate quod ad debitis exercitationem at aspernatur praesentium, id quia nisi a et esse nemo voluptatibus sequi sit delectus commodi distinctio, enim ut fugit? Magni nisi, consectetur dolore id repellendus labore temporibus quos vel asperiores vitae nemo animi. Ea, dolore ullam? Repellendus aliquam doloremque vero neque laudantium. Earum soluta ea, velit itaque rerum nisi eius similique sunt excepturi voluptatum consequuntur facilis. Facere corporis ea reprehenderit dolores, esse veritatis. Earum consequatur nulla ea explicabo at id minima dolore incidunt iure nihil repellat eveniet nesciunt totam recusandae expedita enim, ipsam adipisci soluta autem quisquam ut. Libero, veniam nisi? Asperiores perspiciatis atque rem quia sint, sequi dolores non aliquid, mollitia odit, cum unde vitae voluptas earum nobis accusamus! Odio quo maxime sapiente.</p>
+            <div class="col-md-6 mt-3">
+                <h3 class="my-3">Ringkasan & Tujuan Destinasi</h3>
+                <p style="text-align: justify; font-size: 11pt;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci distinctio doloremque aliquam labore quaerat recusandae voluptates architecto commodi? Sit quod odio aliquam neque quae perspiciatis, veritatis nisi consequuntur! Nulla, quas magni sint iusto quasi nisi dicta possimus sit fuga, nam atque fugiat a. Tempore fugiat sunt dolorem illum molestias eum cupiditate cum incidunt! Est neque, ex minima quaerat perferendis quos maiores exercitationem rem nihil eligendi et inventore, repellendus itaque quas mollitia reprehenderit vel corrupti ut? A soluta in est ea? Amet cupiditate quod ad debitis exercitationem at aspernatur praesentium, id quia nisi a et esse nemo voluptatibus sequi sit delectus commodi distinctio, enim ut fugit? Magni nisi, consectetur dolore id repellendus labore temporibus quos vel asperiores vitae nemo animi. Ea, dolore ullam? Repellendus aliquam doloremque vero neque laudantium. Earum soluta ea, velit itaque rerum nisi eius similique sunt excepturi voluptatum consequuntur facilis. Facere corporis ea reprehenderit dolores, esse veritatis. Earum consequatur nulla ea explicabo at id minima dolore incidunt iure nihil repellat eveniet nesciunt totam recusandae expedita enim, ipsam adipisci soluta autem quisquam ut. Libero, veniam nisi? Asperiores perspiciatis atque rem quia sint, sequi dolores non aliquid, mollitia odit, cum unde vitae voluptas earum nobis accusamus! Odio quo maxime sapiente.</p>
+            </div>
+            <div class="col-md-6 mt-3">
+                <h3 class="my-3">Syarat dan Ketentuan</h3>
+                <p style="text-align: justify; font-size: 11pt;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt voluptates laboriosam eius laborum molestiae blanditiis, debitis commodi incidunt vel cum adipisci saepe, nesciunt dignissimos facere a. Voluptatibus facilis dolorum optio voluptatem commodi dolor, laboriosam doloremque impedit architecto aliquid quos provident, dolore nulla! Animi vero laboriosam laudantium sint dolore minima modi voluptas incidunt. A sed dolore nihil suscipit. Obcaecati fugit eveniet, necessitatibus ex quae doloremque ipsum, libero nisi in placeat ab dicta magnam nobis commodi. Earum eum natus quod cupiditate quia vitae dolores officiis, molestiae eius dicta. Ipsam, corrupti ipsum dicta molestias quis, eaque ipsa est libero voluptatem maiores sint hic, voluptatibus numquam dolor nobis similique quos nulla. Obcaecati exercitationem, voluptate velit, necessitatibus eligendi officia nulla quae laborum soluta fugiat delectus itaque officiis aliquam esse molestias, ad eveniet odio ipsam dicta.</p>
+            </div>
+            <div class="col-md-6 mt-3">
+                <h3 class="my-3">Jadwal dan Kegiatan</h3>
+                <p style="text-align: justify; font-size: 11pt;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt voluptates laboriosam eius laborum molestiae blanditiis, debitis commodi incidunt vel cum adipisci saepe, nesciunt dignissimos facere a. Voluptatibus facilis dolorum optio voluptatem commodi dolor, laboriosam doloremque impedit architecto aliquid quos provident, dolore nulla! Animi vero laboriosam laudantium sint dolore minima modi voluptas incidunt. A sed dolore nihil suscipit. Obcaecati fugit eveniet, necessitatibus ex quae doloremque ipsum, libero nisi in placeat ab dicta magnam nobis commodi. Earum eum natus quod cupiditate quia vitae dolores officiis, molestiae eius dicta. Ipsam, corrupti ipsum dicta molestias quis, eaque ipsa est libero voluptatem maiores sint hic, voluptatibus numquam dolor nobis similique quos nulla. Obcaecati exercitationem, voluptate velit, necessitatibus eligendi officia nulla quae laborum soluta fugiat delectus itaque officiis aliquam esse molestias, ad eveniet odio ipsam dicta.</p>
+            </div>
+            <div class="col-md-6 mt-3">
+                <h3 class="my-3">Harga dan Fasilitas</h3>
+                <p style="text-align: justify; font-size: 11pt;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt voluptates laboriosam eius laborum molestiae blanditiis, debitis commodi incidunt vel cum adipisci saepe, nesciunt dignissimos facere a. Voluptatibus facilis dolorum optio voluptatem commodi dolor, laboriosam doloremque impedit architecto aliquid quos provident, dolore nulla! Animi vero laboriosam laudantium sint dolore minima modi voluptas incidunt. A sed dolore nihil suscipit. Obcaecati fugit eveniet, necessitatibus ex quae doloremque ipsum, libero nisi in placeat ab dicta magnam nobis commodi. Earum eum natus quod cupiditate quia vitae dolores officiis, molestiae eius dicta. Ipsam, corrupti ipsum dicta molestias quis, eaque ipsa est libero voluptatem maiores sint hic, voluptatibus numquam dolor nobis similique quos nulla. Obcaecati exercitationem, voluptate velit, necessitatibus eligendi officia nulla quae laborum soluta fugiat delectus itaque officiis aliquam esse molestias, ad eveniet odio ipsam dicta.</p>
             </div>
         </div>
         <h3 class="my-4">Gambar Lainnya</h3>
         <div class="row">
             <div class="col-md-3 col-sm-6 mb-4">
-                    <a href="#">
-                        <img class="img-fluid" src="https://via.placeholder.com/500x300" alt="">
-                    </a>
+                <a href="#">
+                    <img class="img-fluid" src="https://via.placeholder.com/500x300" alt="">
+                </a>
             </div>
             <div class="col-md-3 col-sm-6 mb-4">
                 <a href="#">

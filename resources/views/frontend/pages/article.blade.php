@@ -132,7 +132,7 @@
                                     <img src="{{asset('assets/upload/packet/kawah-ijen.jpeg')}}" class="img-fluid w-100 h-100" alt="">
                                 </div>
                                 <div class="social">
-                                    <a href="{{url('/tour-package/detail')}}"><i class="bi bi-eye"></i></a>
+                                    <a href="{{url('/tour-packages/detail')}}"><i class="bi bi-eye"></i></a>
                                 </div>
                             </div>
                             <div class="custom-card-packet-info">
@@ -149,7 +149,7 @@
                                     <img src="{{asset('assets/upload/packet/baluran.jpg')}}" class="img-fluid w-100 h-100" alt="">
                                 </div>
                                 <div class="social">
-                                    <a href="{{url('/tour-package/detail')}}"><i class="bi bi-eye"></i></a>
+                                    <a href="{{url('/tour-packages/detail')}}"><i class="bi bi-eye"></i></a>
                                 </div>
                             </div>
                             <div class="custom-card-packet-info">

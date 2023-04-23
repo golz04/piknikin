@@ -18,6 +18,16 @@ class TourPackageController extends Controller
         }
     }
 
+    public function detail(){
+        try {
+            return view('frontend.pages.tour-package-detail');
+        } catch (\Exception $e) {
+            return redirect()->back()->withError($e->getMessage());
+        } catch (\Illuminate\Database\QueryException $e) {
+            return redirect()->back()->withError('Terjadi kesalahan pada database', $e->getMessage());
+        }
+    }
+
     public function request(){
         try {
             return view('frontend.pages.tour-package-request');
