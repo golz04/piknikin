@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Start FE
 Route::get('/', [App\Http\Controllers\Frontend\HomeController::class, 'index']);
 Route::get('/rental', [App\Http\Controllers\Frontend\RentalController::class, 'index']);
 Route::get('/rental/detail', [App\Http\Controllers\Frontend\RentalController::class, 'detail']);
@@ -24,7 +25,13 @@ Route::get('/promo/detail', [App\Http\Controllers\Frontend\PromoController::clas
 Route::get('/article', [App\Http\Controllers\Frontend\ArticleController::class, 'index']);
 Route::get('/article/detail', [App\Http\Controllers\Frontend\ArticleController::class, 'detail']);
 Route::get('/about-us', [App\Http\Controllers\Frontend\AboutController::class, 'index']);
+// End FE
+
+// Start BE
+Route::middleware(['auth'])->prefix('admin')->group(function () {
+    Route::get('/dashboard', [App\Http\Controllers\Backend\DashboardController::class, 'index']);
+});
+// End BE
 
 Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
