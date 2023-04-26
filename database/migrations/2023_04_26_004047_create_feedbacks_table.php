@@ -19,6 +19,7 @@ class CreateFeedbacksTable extends Migration
             $table->string('email');
             $table->text('feedback');
             $table->text('message');
+            $table->enum('status', ['sudah dilihat', 'belum dilihat']);
             $table->timestamps();
         });
     }

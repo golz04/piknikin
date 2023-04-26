@@ -34,4 +34,7 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
 // End BE
 
 Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/register', function(){
+    return redirect('/login');
+});
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
