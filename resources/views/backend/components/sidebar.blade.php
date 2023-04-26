@@ -95,7 +95,7 @@
         Akun
     </div>
     <li class="nav-item @if (Request::segment(2) == 'user') active @endif">
-        <a class="nav-link" href="/back-user">
+        <a class="nav-link" href="{{url('/admin/user')}}">
         <i class="fas fa-fw fa-user"></i>
         <span>Pengguna</span></a>
     </li>
