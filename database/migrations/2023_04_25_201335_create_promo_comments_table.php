@@ -19,6 +19,7 @@ class CreatePromoCommentsTable extends Migration
             $table->string('name');
             $table->string('email');
             $table->text('message');
+            $table->enum('status', ['sudah dibaca', 'belum dibaca']);
             $table->timestamps();
 
             $table->foreign('promo_id')->references('id')->on('promos')->cascadeOnUpdate()->cascadeOnDelete();

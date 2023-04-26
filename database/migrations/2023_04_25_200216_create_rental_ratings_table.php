@@ -25,6 +25,7 @@ class CreateRentalRatingsTable extends Migration
             $table->integer('value_for_money');
             $table->integer('overall');
             $table->text('message');
+            $table->enum('status', ['sudah dibaca', 'belum dibaca']);
             $table->timestamps();
 
             $table->foreign('rental_id')->references('id')->on('rentals')->cascadeOnUpdate()->cascadeOnDelete();

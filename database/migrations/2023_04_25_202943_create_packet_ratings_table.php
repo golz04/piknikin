@@ -25,6 +25,7 @@ class CreatePacketRatingsTable extends Migration
             $table->integer('value_for_money');
             $table->integer('overall');
             $table->text('message');
+            $table->enum('status', ['sudah dibaca', 'belum dibaca']);
             $table->timestamps();
 
             $table->foreign('packet_id')->references('id')->on('packets')->cascadeOnUpdate()->cascadeOnDelete();

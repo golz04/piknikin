@@ -19,6 +19,7 @@ class CreateArticleCommentsTable extends Migration
             $table->string('name');
             $table->string('email');
             $table->text('message');
+            $table->enum('status', ['sudah dilihat', 'belum dilihat']);
             $table->timestamps();
 
             $table->foreign('article_id')->references('id')->on('articles')->cascadeOnUpdate()->cascadeOnDelete();
