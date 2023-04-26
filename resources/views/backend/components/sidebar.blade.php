@@ -20,7 +20,7 @@
     </div>
     <li class="nav-item @if (Request::segment(2) == 'rental') active @endif">
         <a class="nav-link @if (Request::segment(2) == 'rental') collapsed @endif" href="#" data-toggle="collapse" data-target="#collapseRental" aria-expanded="true" aria-controls="collapseRental">
-            <i class="mr-2 fas fa-fw fa-car"></i><span>Rental</span>
+            <i class="fas fa-fw fa-car"></i><span>Rental</span>
         </a>
         <div id="collapseRental" class="collapse @if (Request::segment(2) == 'rental') show @endif" aria-labelledby="headingRental" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
@@ -33,7 +33,7 @@
     </li>
     <li class="nav-item @if (Request::segment(2) == 'packet') active @endif">
         <a class="nav-link @if (Request::segment(2) == 'packet') collapsed @endif" href="#" data-toggle="collapse" data-target="#collapsePacket" aria-expanded="true" aria-controls="collapsePacket">
-            <i class="mr-2 fas fa-fw fa-box"></i><span>Paket</span>
+            <i class="fas fa-fw fa-box"></i><span>Paket</span>
         </a>
         <div id="collapsePacket" class="collapse @if (Request::segment(2) == 'packet') show @endif" aria-labelledby="headingPacket" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
@@ -46,7 +46,7 @@
     </li>
     <li class="nav-item @if (Request::segment(2) == 'article') active @endif">
         <a class="nav-link @if (Request::segment(2) == 'article') collapsed @endif" href="#" data-toggle="collapse" data-target="#collapseArticle" aria-expanded="true" aria-controls="collapseArticle">
-            <i class="mr-2 fas fa-fw fa-info"></i><span>Artikel</span>
+            <i class="fas fa-fw fa-info"></i><span>Artikel</span>
         </a>
         <div id="collapseArticle" class="collapse @if (Request::segment(2) == 'article') show @endif" aria-labelledby="headingArticle" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
@@ -58,7 +58,7 @@
     </li>
     <li class="nav-item @if (Request::segment(2) == 'promo') active @endif">
         <a class="nav-link @if (Request::segment(2) == 'promo') collapsed @endif" href="#" data-toggle="collapse" data-target="#collapsePromo" aria-expanded="true" aria-controls="collapsePromo">
-            <i class="mr-2 fas fa-fw fa-certificate"></i><span>Promo</span>
+            <i class="fas fa-fw fa-certificate"></i><span>Promo</span>
         </a>
         <div id="collapsePromo" class="collapse @if (Request::segment(2) == 'promo') show @endif" aria-labelledby="headingPromo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
