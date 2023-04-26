@@ -25,6 +25,7 @@ class CreateRequestToursTable extends Migration
             $table->string('qty_participant');
             $table->string('from');
             $table->text('message');
+            $table->enum('status', ['selesai', 'diterima', 'ditolak', 'menunggu']);
             $table->timestamps();
         });
     }
