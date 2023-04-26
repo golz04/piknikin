@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateArticleCommentsTable extends Migration
+class CreateTestimonialsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,13 @@ class CreateArticleCommentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('article_comments', function (Blueprint $table) {
+        Schema::create('testimonials', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('article_id', false, true);
             $table->string('name');
-            $table->string('email');
+            $table->string('job');
             $table->text('message');
-            $table->enum('status', ['sudah dibaca', 'belum dibaca']);
+            $table->string('avatar');
             $table->timestamps();
-
-            $table->foreign('article_id')->references('id')->on('articles')->cascadeOnUpdate()->cascadeOnDelete();
         });
     }
 
@@ -33,6 +30,6 @@ class CreateArticleCommentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('article_comments');
+        Schema::dropIfExists('testimonials');
     }
 }
