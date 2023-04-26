@@ -14,6 +14,8 @@
 
         <link href="{{ asset('assets/frontend/img/favicon.png') }}" rel="icon">
         <link href="{{ asset('assets/frontend/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+
+        @yield('extraCSS')
     </head>
     <body id="page-top">
         <div id="wrapper">
@@ -23,7 +25,28 @@
                     @include('backend.components.topbar')
                     <div class="container-fluid">
                         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                            <h1 class="h3 mb-0 text-gray-800">@yield('onPage')</h1>
+                            <h1 class="h4 mb-0 text-gray-800" style="text-shadow: 2px 2px 4px #b8b8b8;">@yield('onPage')</h1>
+                        </div>
+                        <div class="row">
+                            @if (session('status'))
+                                <div class="alert alert-success sb-alert-icon m-3 w-100" role="alert">
+                                    <button class="close" type="button" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">×</span>
+                                    </button>
+                                    <div class="sb-alert-icon-content">
+                                        {{session('status')}}
+                                    </div>
+                                </div>
+                            @elseif (session('error'))
+                                <div class="alert alert-danger sb-alert-icon m-3 w-100" role="alert">
+                                    <button class="close" type="button" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">×</span>
+                                    </button>
+                                    <div class="sb-alert-icon-content">
+                                        {{session('error')}}
+                                    </div>
+                                </div>
+                            @endif
                         </div>
                         @yield('content')
                     </div>
@@ -39,5 +62,7 @@
         <script src="{{asset('assets/backend/dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
         <script src="{{asset('assets/backend/dashboard/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
         <script src="{{asset('assets/backend/dashboard/js/sb-admin-2.min.js')}}"></script>
+        
+        @yield('extraJS')
     </body>
 </html>

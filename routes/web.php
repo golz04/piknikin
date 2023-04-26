@@ -30,6 +30,13 @@ Route::get('/about-us', [App\Http\Controllers\Frontend\AboutController::class, '
 // Start BE
 Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::get('/dashboard', [App\Http\Controllers\Backend\DashboardController::class, 'index']);
+
+    Route::get('/account', [App\Http\Controllers\Backend\AccountController::class, 'index']);
+    Route::get('/account/add', [App\Http\Controllers\Backend\AccountController::class, 'add']);
+    Route::post('/account/store', [App\Http\Controllers\Backend\AccountController::class, 'store']);
+    Route::get('/account/{user}/detail', [App\Http\Controllers\Backend\AccountController::class, 'detail']);
+    Route::patch('/account/{user}/reset', [App\Http\Controllers\Backend\AccountController::class, 'reset']);
+    Route::delete('/account/{user}/drop', [App\Http\Controllers\Backend\AccountController::class, 'drop']);
 });
 // End BE
 

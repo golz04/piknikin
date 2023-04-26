@@ -1,5 +1,7 @@
 @extends('backend.layouts.app')
-@section('onPage', 'Dashboard')
+@section('onPage')
+<span style="color: #4e73df;">Dashboard</span>
+@endsection
 @section('content')
     <div class="row">
         <div class="col-xl-3 col-md-6 mb-4">
