@@ -31,6 +31,13 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     // dashboard
     Route::get('/dashboard', [App\Http\Controllers\Backend\DashboardController::class, 'index']);
 
+    // feedback
+    Route::get('/feedback', [App\Http\Controllers\Backend\FeedbackController::class, 'index']);
+    Route::post('/feedback/store', [App\Http\Controllers\Backend\FeedbackController::class, 'store']);
+    Route::patch('/feedback/{feedback}/update', [App\Http\Controllers\Backend\FeedbackController::class, 'update']);
+    Route::delete('/feedback/{feedback}/drop', [App\Http\Controllers\Backend\FeedbackController::class, 'drop']);
+    Route::post('/feedback/update/all', [App\Http\Controllers\Backend\FeedbackController::class, 'all']);
+
     // request-tour
     Route::get('/request-tour', [App\Http\Controllers\Backend\RequestTourController::class, 'index']);
     Route::get('/request-tour/add', [App\Http\Controllers\Backend\RequestTourController::class, 'add']);
