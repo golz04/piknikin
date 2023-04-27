@@ -25,12 +25,19 @@ Route::get('/promo/detail', [App\Http\Controllers\Frontend\PromoController::clas
 Route::get('/article', [App\Http\Controllers\Frontend\ArticleController::class, 'index']);
 Route::get('/article/detail', [App\Http\Controllers\Frontend\ArticleController::class, 'detail']);
 Route::get('/about-us', [App\Http\Controllers\Frontend\AboutController::class, 'index']);
-// End FE
 
 // Start BE
 Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::get('/dashboard', [App\Http\Controllers\Backend\DashboardController::class, 'index']);
 
+    // destination
+    Route::get('/destination', [App\Http\Controllers\Backend\DestinationController::class, 'index']);
+    Route::post('/destination/store', [App\Http\Controllers\Backend\DestinationController::class, 'store']);
+    Route::get('/destination/{destination}/edit', [App\Http\Controllers\Backend\DestinationController::class, 'edit']);
+    Route::patch('/destination/update/{destination}', [App\Http\Controllers\Backend\DestinationController::class, 'update']);
+    Route::delete('/destination/{destination}/drop', [App\Http\Controllers\Backend\DestinationController::class, 'drop']);
+
+    // account
     Route::get('/account', [App\Http\Controllers\Backend\AccountController::class, 'index']);
     Route::get('/account/add', [App\Http\Controllers\Backend\AccountController::class, 'add']);
     Route::post('/account/store', [App\Http\Controllers\Backend\AccountController::class, 'store']);
@@ -38,10 +45,8 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::patch('/account/{user}/reset', [App\Http\Controllers\Backend\AccountController::class, 'reset']);
     Route::delete('/account/{user}/drop', [App\Http\Controllers\Backend\AccountController::class, 'drop']);
 });
-// End BE
 
 Auth::routes();
 Route::get('/register', function(){
     return redirect('/login');
 });
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
