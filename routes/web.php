@@ -28,7 +28,16 @@ Route::get('/about-us', [App\Http\Controllers\Frontend\AboutController::class, '
 
 // Start BE
 Route::middleware(['auth'])->prefix('admin')->group(function () {
+    // dashboard
     Route::get('/dashboard', [App\Http\Controllers\Backend\DashboardController::class, 'index']);
+
+    // request-tour
+    Route::get('/request-tour', [App\Http\Controllers\Backend\RequestTourController::class, 'index']);
+    Route::get('/request-tour/add', [App\Http\Controllers\Backend\RequestTourController::class, 'add']);
+    Route::post('/request-tour/store', [App\Http\Controllers\Backend\RequestTourController::class, 'store']);
+    Route::get('/request-tour/{requestTour}/detail', [App\Http\Controllers\Backend\RequestTourController::class, 'detail']);
+    Route::patch('/request-tour/update/{requestTour}', [App\Http\Controllers\Backend\RequestTourController::class, 'update']);
+    Route::delete('/request-tour/{requestTour}/drop', [App\Http\Controllers\Backend\RequestTourController::class, 'drop']);
 
     // destination
     Route::get('/destination', [App\Http\Controllers\Backend\DestinationController::class, 'index']);

@@ -21,8 +21,8 @@ Akun > Admin > <span style="color: #4e73df;">Tambah Akun</span>
                     @enderror
                 </div>
                 <div class="form-group">
-                    <label for="email" class="ml-1">Email* :</label>
-                    <input type="email" class="form-control  @error('email') is-invalid @enderror" name="email" placeholder="Email..." value="{{old('email')}}" autocomplete="off">
+                    <label for="email" class="ml-1">Surel* :</label>
+                    <input type="email" class="form-control  @error('email') is-invalid @enderror" name="email" placeholder="Surel..." value="{{old('email')}}" autocomplete="off">
                     @error('email')
                         <div class="invalid-feedback">
                             {{$message}}
