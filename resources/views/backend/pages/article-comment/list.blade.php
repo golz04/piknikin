@@ -3,24 +3,24 @@
 <link href="{{asset('assets/backend/dashboard/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
 @endsection
 @section('onPage')
-Master Web > Promo > <span style="color: #4e73df;">Komentar Promo</span>
+Master Web > Artikel > <span style="color: #4e73df;">Komentar Artikel</span>
 @endsection
 @section('content')
 <div class="row">
     <div class="col-12">
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Form Data Komentar Promo</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Form Data Komentar Artikel</h6>
             </div>
-            <form class="card-body" method="POST" enctype="multipart/form-data" action="{{url('/admin/promo/list-comment-promo/store')}}">
+            <form class="card-body" method="POST" enctype="multipart/form-data" action="{{url('/admin/article/list-comment-article/store')}}">
                 @csrf
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="promo" class="ml-1">Judul Promo :</label>
-                            <select class="custom-select" name="promo">
-                                @foreach ($getPromo as $item)
-                                <option value="{{$item->id}}" @if(old('promo') == $item->id) selected @endif>({{$item->date_post}}) {{$item->title}}</option>
+                            <label for="article" class="ml-1">Judul Arikel :</label>
+                            <select class="custom-select" name="article">
+                                @foreach ($getArticle as $item)
+                                <option value="{{$item->id}}" @if(old('article') == $item->id) selected @endif>({{$item->date_post}}) {{$item->title}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -87,9 +87,9 @@ Master Web > Promo > <span style="color: #4e73df;">Komentar Promo</span>
         <div class="card shadow mb-4">
             <div class="card-header py-3">
                 <div class="d-flex justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary pt-2">List Data Komentar Promo</h6>
-                    @if ($getCountCommentPromo > 0)
-                    <form action="{{url('/admin/promo/list-comment-promo/update/all')}}" method="POST">
+                    <h6 class="m-0 font-weight-bold text-primary pt-2">List Data Komentar Artikel</h6>
+                    @if ($getCountCommentArticle > 0)
+                    <form action="{{url('/admin/article/list-comment-article/update/all')}}" method="POST">
                         @csrf
                         <button type="submit" class="btn btn-sm btn-info">
                             Tandai Semua Sudah Dilihat
@@ -100,11 +100,11 @@ Master Web > Promo > <span style="color: #4e73df;">Komentar Promo</span>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered thisDisplay" id="dataTablePromo" width="100%" cellspacing="0">
+                    <table class="table table-bordered thisDisplay" id="dataTableArticle" width="100%" cellspacing="0">
                         <thead>
                             <tr>
                                 <th><center>No.</center></th>
-                                <th><center>Judul Promo</center></th>
+                                <th><center>Judul Artikel</center></th>
                                 <th><center>Nama</center></th>
                                 <th><center>Surel</center></th>
                                 <th><center>Pesan</center></th>
@@ -113,7 +113,7 @@ Master Web > Promo > <span style="color: #4e73df;">Komentar Promo</span>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($getCommentPromo as $item)
+                            @foreach ($getCommentArticle as $item)
                             <tr>
                                 <td class="align-middle"><center>{{$loop->iteration}}</center></td>
                                 <td class="align-middle">{{$item->title}}</td>
@@ -123,7 +123,7 @@ Master Web > Promo > <span style="color: #4e73df;">Komentar Promo</span>
                                 <td class="align-middle"><center><span class="badge @if ($item->status == 'sudah dibaca') bg-success @elseif ($item->status == 'belum dibaca') bg-secondary @endif p-2 text-white">{{$item->status}}</span></center></td>
                                 <td class="align-middle"><center>
                                     @if ($item->status != 'sudah dibaca')
-                                    <form action="{{url('/admin/promo/list-comment-promo')}}/{{$item->id}}/update" method="POST" class="d-inline">
+                                    <form action="{{url('/admin/article/list-comment-article')}}/{{$item->id}}/update" method="POST" class="d-inline">
                                         @method('PATCH')
                                         @csrf
                                         <button type="submit" class="btn btn-sm btn-info btn-circle">
@@ -131,7 +131,7 @@ Master Web > Promo > <span style="color: #4e73df;">Komentar Promo</span>
                                         </button>
                                     </form> |
                                     @endif
-                                    <form action="{{url('/admin/promo/list-comment-promo')}}/{{$item->id}}/drop" method="POST" class="d-inline">
+                                    <form action="{{url('/admin/article/list-comment-article')}}/{{$item->id}}/drop" method="POST" class="d-inline">
                                         @method('delete')
                                         @csrf
                                         <button type="submit" class="btn btn-sm btn-danger btn-circle" onclick="return confirm('Hapus Data ?')">
@@ -154,7 +154,7 @@ Master Web > Promo > <span style="color: #4e73df;">Komentar Promo</span>
 <script src="{{asset('assets/backend/dashboard/vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
 <script type="text/javascript">
     $(document).ready( function () {
-        $('#dataTablePromo').DataTable();
+        $('#dataTableArticle').DataTable();
     });
 </script>
 @endsection

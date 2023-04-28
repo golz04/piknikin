@@ -31,6 +31,20 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     // dashboard
     Route::get('/dashboard', [App\Http\Controllers\Backend\DashboardController::class, 'index']);
 
+    // article
+    Route::get('/article/list-article', [App\Http\Controllers\Backend\ArticleController::class, 'laIndex']);
+    Route::get('/article/list-article/add', [App\Http\Controllers\Backend\ArticleController::class, 'laAdd']);
+    Route::post('/article/list-article/store', [App\Http\Controllers\Backend\ArticleController::class, 'laStore']);
+    Route::get('/article/list-article/{article}/edit', [App\Http\Controllers\Backend\ArticleController::class, 'laEdit']);
+    Route::patch('/article/list-article/update/{article}', [App\Http\Controllers\Backend\ArticleController::class, 'laUpdate']);
+    Route::delete('/article/list-article/{article}/drop', [App\Http\Controllers\Backend\ArticleController::class, 'laDrop']);
+
+    Route::get('/article/list-comment-article', [App\Http\Controllers\Backend\ArticleController::class, 'lacIndex']);
+    Route::post('/article/list-comment-article/store', [App\Http\Controllers\Backend\ArticleController::class, 'lacStore']);
+    Route::patch('/article/list-comment-article/{articleComment}/update', [App\Http\Controllers\Backend\ArticleController::class, 'lacUpdate']);
+    Route::delete('/article/list-comment-article/{articleComment}/drop', [App\Http\Controllers\Backend\ArticleController::class, 'lacDrop']);
+    Route::post('/article/list-comment-article/update/all', [App\Http\Controllers\Backend\ArticleController::class, 'lacAll']);
+
     // promo
     Route::get('/promo/list-promo', [App\Http\Controllers\Backend\PromoController::class, 'lpIndex']);
     Route::get('/promo/list-promo/add', [App\Http\Controllers\Backend\PromoController::class, 'lpAdd']);
@@ -39,11 +53,11 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::patch('/promo/list-promo/update/{promo}', [App\Http\Controllers\Backend\PromoController::class, 'lpUpdate']);
     Route::delete('/promo/list-promo/{promo}/drop', [App\Http\Controllers\Backend\PromoController::class, 'lpDrop']);
 
-    Route::get('promo/list-comment-promo', [App\Http\Controllers\Backend\PromoController::class, 'lpcIndex']);
-    Route::post('promo/list-comment-promo/store', [App\Http\Controllers\Backend\PromoController::class, 'lpcStore']);
-    Route::patch('promo/list-comment-promo/{promoComment}/update', [App\Http\Controllers\Backend\PromoController::class, 'lpcUpdate']);
-    Route::delete('promo/list-comment-promo/{promoComment}/drop', [App\Http\Controllers\Backend\PromoController::class, 'lpcDrop']);
-    Route::post('promo/list-comment-promo/update/all', [App\Http\Controllers\Backend\PromoController::class, 'lpcAll']);
+    Route::get('/promo/list-comment-promo', [App\Http\Controllers\Backend\PromoController::class, 'lpcIndex']);
+    Route::post('/promo/list-comment-promo/store', [App\Http\Controllers\Backend\PromoController::class, 'lpcStore']);
+    Route::patch('/promo/list-comment-promo/{promoComment}/update', [App\Http\Controllers\Backend\PromoController::class, 'lpcUpdate']);
+    Route::delete('/promo/list-comment-promo/{promoComment}/drop', [App\Http\Controllers\Backend\PromoController::class, 'lpcDrop']);
+    Route::post('/promo/list-comment-promo/update/all', [App\Http\Controllers\Backend\PromoController::class, 'lpcAll']);
 
     // request-tour
     Route::get('/testimonial', [App\Http\Controllers\Backend\TestimonialController::class, 'index']);
