@@ -31,6 +31,15 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     // dashboard
     Route::get('/dashboard', [App\Http\Controllers\Backend\DashboardController::class, 'index']);
 
+    // promo
+    Route::get('/promo/list-promo', [App\Http\Controllers\Backend\PromoController::class, 'lpIndex']);
+    Route::get('/promo/list-promo/add', [App\Http\Controllers\Backend\PromoController::class, 'lpAdd']);
+    Route::post('/promo/list-promo/store', [App\Http\Controllers\Backend\PromoController::class, 'lpStore']);
+    Route::get('/promo/list-promo/{promo}/edit', [App\Http\Controllers\Backend\PromoController::class, 'lpEdit']);
+    Route::patch('/promo/list-promo/update/{promo}', [App\Http\Controllers\Backend\PromoController::class, 'lpUpdate']);
+    Route::delete('/promo/list-promo/{promo}/drop', [App\Http\Controllers\Backend\PromoController::class, 'lpDrop']);
+
+
     // request-tour
     Route::get('/testimonial', [App\Http\Controllers\Backend\TestimonialController::class, 'index']);
     Route::get('/testimonial/add', [App\Http\Controllers\Backend\TestimonialController::class, 'add']);

@@ -64,7 +64,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Menu Promo:</h6>
                 <a class="collapse-item @if (Request::segment(3) == 'list-promo') active @endif" href="{{url('/admin/promo/list-promo')}}">List Promo</a>
-                <a class="collapse-item @if (Request::segment(3) == 'gallery-promo') active @endif" href="{{url('/admin/promo/list-gallery-promo')}}">Komentar Promo</a>
+                <a class="collapse-item @if (Request::segment(3) == 'list-comment-promo') active @endif" href="{{url('/admin/promo/list-comment-promo')}}">Komentar Promo</a>
             </div>
         </div>
     </li>
