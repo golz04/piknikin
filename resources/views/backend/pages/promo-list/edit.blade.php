@@ -168,8 +168,9 @@ Master Web > Promo > List Promo > <span style="color: #4e73df;">Edit Promo</span
                             <tr>
                                 <td class="align-middle"><center>{{$loop->iteration}}</center></td>
                                 <td class="align-middle">{{$item->name}}</td>
+                                <td class="align-middle">{{$item->email}}</td>
                                 <td class="align-middle">{{$item->message}}</td>
-                                <td class="align-middle"><center><span class="badge @if ($item->status == 'sudah dilihat') bg-success @elseif ($item->status == 'belum dilihat') bg-secondary @endif p-2 text-white">{{$item->status}}</span></center></td>
+                                <td class="align-middle"><center><span class="badge @if ($item->status == 'sudah dibaca') bg-success @elseif ($item->status == 'belum dibaca') bg-secondary @endif p-2 text-white">{{$item->status}}</span></center></td>
                             </tr>
                             @endforeach
                         </tbody>

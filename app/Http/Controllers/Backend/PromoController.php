@@ -74,7 +74,7 @@ class PromoController extends Controller
 
             $promo = new Promo();
             $promo->title = $request->title;
-            $promo->slug = \Str::slug($random.'-'.$request->slug);
+            $promo->slug = \Str::slug($random.'-'.$request->title);
             $promo->date_post = $request->date_post;
             if ($request->file('thumbnail')) {
                 $request->file('thumbnail')->move('assets/upload/promo', $date.$random.$request->file('thumbnail')->getClientOriginalName());
@@ -146,7 +146,7 @@ class PromoController extends Controller
 
             $promo = Promo::find($promo->id);
             $promo->title = $request->title;
-            $promo->slug = \Str::slug($random.'-'.$request->slug);
+            $promo->slug = \Str::slug($random.'-'.$request->title);
             $promo->date_post = $request->date_post;
 
             if ($request->file('thumbnail')) {
@@ -182,6 +182,104 @@ class PromoController extends Controller
             Promo::find($promo->id)->delete();
 
             return redirect('/admin/promo/list-promo')->withStatus('Berhasil menghapus promo.');
+        } catch (\Exception $e) {
+            return redirect()->back()->withError($e->getMessage());
+        } catch (\Illuminate\Database\QueryException $e) {
+            return redirect()->back()->withError('Terjadi kesalahan pada database', $e->getMessage());
+        }
+    }
+
+    public function lpcIndex(){
+        try {
+            // $this->param['getCommentPromo'] = PromoComment::all();
+            $this->param['getCommentPromo'] = \DB::table('promo_comments')
+                                                    ->select('promos.title', 'promo_comments.*')
+                                                    ->join('promos', 'promo_comments.promo_id', 'promos.id')
+                                                    ->get();
+            $this->param['getPromo'] = Promo::all();
+            $this->param['getCountCommentPromo'] = PromoComment::where('status', 'belum dibaca')->count();
+
+            return view('backend.pages.promo-comment.list', $this->param);
+        } catch (\Exception $e) {
+            return redirect()->back()->withError($e->getMessage());
+        } catch (\Illuminate\Database\QueryException $e) {
+            return redirect()->back()->withError('Terjadi kesalahan pada database', $e->getMessage());
+        }
+    }
+
+    public function lpcStore(Request $request){
+        $this->validate($request,
+            [
+                'promo' => 'required',
+                'full_name' => 'required',
+                'email' => 'required|email',
+                'message' => 'required',
+                'status' => 'required',
+            ],
+            [
+                'required' => ':attribute harus diisi.',
+                'email' => 'Format surel tidak sesuai.',
+            ],
+            [
+                'promo' => 'Promo',
+                'full_name' => 'Nama Lengkap',
+                'email' => 'Surel',
+                'message' => 'Pesan',
+                'status' => 'Status',
+            ],
+        );
+        try {
+            $promoComment = new PromoComment();
+            $promoComment->promo_id = $request->promo;
+            $promoComment->name = $request->full_name;
+            $promoComment->email = $request->email;
+            $promoComment->message = $request->message;
+            $promoComment->status = $request->status;
+            $promoComment->save();
+            
+
+            return redirect('/admin/promo/list-comment-promo')->withStatus('Berhasil menambahkan komentar promo baru.');
+        } catch (\Exception $e) {
+            return redirect()->back()->withError($e->getMessage());
+        } catch (\Illuminate\Database\QueryException $e) {
+            return redirect()->back()->withError('Terjadi kesalahan pada database', $e->getMessage());
+        }
+    }
+
+    public function lpcUpdate(PromoComment $promoComment, Request $request){
+        try {
+            $promoComment = PromoComment::find($promoComment->id);
+            $promoComment->status = 'sudah dibaca';
+            $promoComment->save();
+            
+
+            return redirect('/admin/promo/list-comment-promo')->withStatus('Berhasil memperbarui komentar promo.');
+        } catch (\Exception $e) {
+            return redirect()->back()->withError($e->getMessage());
+        } catch (\Illuminate\Database\QueryException $e) {
+            return redirect()->back()->withError('Terjadi kesalahan pada database', $e->getMessage());
+        }
+    }
+
+    public function lpcDrop(PromoComment $promoComment){
+        try {
+            PromoComment::find($promoComment->id)->delete();
+
+            return redirect('/admin/promo/list-comment-promo')->withStatus('Berhasil menghapus komentar promo.');
+        } catch (\Exception $e) {
+            return redirect()->back()->withError($e->getMessage());
+        } catch (\Illuminate\Database\QueryException $e) {
+            return redirect()->back()->withError('Terjadi kesalahan pada database', $e->getMessage());
+        }
+    }
+
+    public function lpcAll(Request $request){
+        try {
+            PromoComment::where('status', 'belum dibaca')->update([
+                'status' => 'sudah dibaca'
+            ]);
+
+            return redirect('/admin/promo/list-comment-promo')->withStatus('Berhasil memperbarui komentar promo.');
         } catch (\Exception $e) {
             return redirect()->back()->withError($e->getMessage());
         } catch (\Illuminate\Database\QueryException $e) {

@@ -39,6 +39,11 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::patch('/promo/list-promo/update/{promo}', [App\Http\Controllers\Backend\PromoController::class, 'lpUpdate']);
     Route::delete('/promo/list-promo/{promo}/drop', [App\Http\Controllers\Backend\PromoController::class, 'lpDrop']);
 
+    Route::get('promo/list-comment-promo', [App\Http\Controllers\Backend\PromoController::class, 'lpcIndex']);
+    Route::post('promo/list-comment-promo/store', [App\Http\Controllers\Backend\PromoController::class, 'lpcStore']);
+    Route::patch('promo/list-comment-promo/{promoComment}/update', [App\Http\Controllers\Backend\PromoController::class, 'lpcUpdate']);
+    Route::delete('promo/list-comment-promo/{promoComment}/drop', [App\Http\Controllers\Backend\PromoController::class, 'lpcDrop']);
+    Route::post('promo/list-comment-promo/update/all', [App\Http\Controllers\Backend\PromoController::class, 'lpcAll']);
 
     // request-tour
     Route::get('/testimonial', [App\Http\Controllers\Backend\TestimonialController::class, 'index']);
