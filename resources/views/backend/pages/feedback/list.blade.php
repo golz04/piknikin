@@ -17,7 +17,7 @@ Master Web > <span style="color: #4e73df;">Kritik & Saran</span>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="full_name" class="ml-1">Nama Lengkap :</label>
+                            <label for="full_name" class="ml-1">Nama Lengkap* :</label>
                             <input type="text" class="form-control  @error('full_name') is-invalid @enderror" name="full_name" placeholder="Nama Lengkap..." value="{{old('full_name')}}" autocomplete="off">
                             @error('full_name')
                                 <div class="invalid-feedback">
@@ -28,7 +28,7 @@ Master Web > <span style="color: #4e73df;">Kritik & Saran</span>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="email" class="ml-1">Surel :</label>
+                            <label for="email" class="ml-1">Surel* :</label>
                             <input type="email" class="form-control  @error('email') is-invalid @enderror" name="email" placeholder="Surel..." value="{{old('email')}}" autocomplete="off">
                             @error('email')
                                 <div class="invalid-feedback">
@@ -41,7 +41,7 @@ Master Web > <span style="color: #4e73df;">Kritik & Saran</span>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="feedback" class="ml-1">Kritik & Saran :</label>
+                            <label for="feedback" class="ml-1">Kritik & Saran* :</label>
                             <input type="text" class="form-control  @error('feedback') is-invalid @enderror" name="feedback" placeholder="Kritik & Saran..." value="{{old('feedback')}}" autocomplete="off">
                             @error('feedback')
                                 <div class="invalid-feedback">
@@ -52,7 +52,7 @@ Master Web > <span style="color: #4e73df;">Kritik & Saran</span>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="message" class="ml-1">Pesan :</label>
+                            <label for="message" class="ml-1">Pesan* :</label>
                             <input type="text" class="form-control  @error('message') is-invalid @enderror" name="message" placeholder="Pesan..." value="{{old('message')}}" autocomplete="off">
                             @error('message')
                                 <div class="invalid-feedback">
@@ -63,7 +63,7 @@ Master Web > <span style="color: #4e73df;">Kritik & Saran</span>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="status" class="ml-1">Status :</label>
+                    <label for="status" class="ml-1">Status* :</label>
                     <select class="custom-select" name="status">
                         <option value="belum dilihat" @if(old('status') == 'belum dilihat') selected @endif>Belum Dilihat</option>
                         <option value="sudah dilihat" @if(old('status') == 'sudah dilihat') selected @endif>Sudah Dilihat</option>

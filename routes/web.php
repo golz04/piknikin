@@ -31,6 +31,26 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     // dashboard
     Route::get('/dashboard', [App\Http\Controllers\Backend\DashboardController::class, 'index']);
 
+    // packet
+    Route::get('/packet/list-packet', [App\Http\Controllers\Backend\PacketController::class, 'lpaIndex']);
+    Route::get('/packet/list-packet/add', [App\Http\Controllers\Backend\PacketController::class, 'lpaAdd']);
+    Route::post('/packet/list-packet/store', [App\Http\Controllers\Backend\PacketController::class, 'lpaStore']);
+    Route::get('/packet/list-packet/{packet}/edit', [App\Http\Controllers\Backend\PacketController::class, 'lpaEdit']);
+    Route::patch('/packet/list-packet/update/{packet}', [App\Http\Controllers\Backend\PacketController::class, 'lpaUpdate']);
+    Route::delete('/packet/list-packet/{packet}/drop', [App\Http\Controllers\Backend\PacketController::class, 'lpaDrop']);
+
+    Route::get('/packet/list-gallery-packet', [App\Http\Controllers\Backend\PacketController::class, 'lpagIndex']);
+    Route::post('/packet/list-gallery-packet/store', [App\Http\Controllers\Backend\PacketController::class, 'lpagStore']);
+    Route::get('/packet/list-gallery-packet/{packetGallery}/edit', [App\Http\Controllers\Backend\PacketController::class, 'lpagEdit']);
+    Route::patch('/packet/list-gallery-packet/update/{packetGallery}', [App\Http\Controllers\Backend\PacketController::class, 'lpagUpdate']);
+    Route::delete('/packet/list-gallery-packet/{packetGallery}/drop', [App\Http\Controllers\Backend\PacketController::class, 'lpagDrop']);
+    
+    Route::get('/packet/list-rating-packet', [App\Http\Controllers\Backend\PacketController::class, 'lparIndex']);
+    Route::post('/packet/list-rating-packet/store', [App\Http\Controllers\Backend\PacketController::class, 'lparStore']);
+    Route::patch('/packet/list-rating-packet/{packetRating}/update', [App\Http\Controllers\Backend\PacketController::class, 'lparUpdate']);
+    Route::delete('/packet/list-rating-packet/{packetRating}/drop', [App\Http\Controllers\Backend\PacketController::class, 'lparDrop']);
+    Route::post('/packet/list-rating-packet/update/all', [App\Http\Controllers\Backend\PacketController::class, 'lparAll']);
+
     // article
     Route::get('/article/list-article', [App\Http\Controllers\Backend\ArticleController::class, 'laIndex']);
     Route::get('/article/list-article/add', [App\Http\Controllers\Backend\ArticleController::class, 'laAdd']);
