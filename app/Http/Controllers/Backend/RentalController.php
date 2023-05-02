@@ -261,7 +261,7 @@ class RentalController extends Controller
                 'required' => ':attribute harus diisi.',
             ],
             [
-                'rental' => 'Paket',
+                'rental' => 'Rental',
             ],
         );
         try {
@@ -303,6 +303,120 @@ class RentalController extends Controller
             RentalGalery::find($rentalGallery->id)->delete();
 
             return redirect('/admin/rental/list-gallery-rental')->withStatus('Berhasil menghapus galeri rental.');
+        } catch (\Exception $e) {
+            return redirect()->back()->withError($e->getMessage());
+        } catch (\Illuminate\Database\QueryException $e) {
+            return redirect()->back()->withError('Terjadi kesalahan pada database', $e->getMessage());
+        }
+    }
+
+    public function lrrIndex(){
+        try {
+            $this->param['getCountRatingRental'] = RentalRating::where('status', 'belum dibaca')->count();
+            $this->param['getRental'] = Rental::all();
+            $this->param['getRatingRental'] = \DB::table('rental_ratings')
+                                                    ->select('rentals.title', 'rental_ratings.*')
+                                                    ->join('rentals', 'rental_ratings.rental_id', 'rentals.id')
+                                                    ->get();
+
+            return view('backend.pages.rental-rating.list', $this->param);
+        } catch (\Exception $e) {
+            return redirect()->back()->withError($e->getMessage());
+        } catch (\Illuminate\Database\QueryException $e) {
+            return redirect()->back()->withError('Terjadi kesalahan pada database', $e->getMessage());
+        }
+    }
+
+    public function lrrStore(Request $request){
+        $this->validate($request,
+            [
+                'rental' => 'required',
+                'full_name' => 'required',
+                'email' => 'required|email',
+                'accomodation' => 'required',
+                'meal' => 'required',
+                'destination' => 'required',
+                'transport' => 'required',
+                'value_for_money' => 'required',
+                'overall' => 'required',
+                'message' => 'required',
+                'status' => 'required',
+            ],
+            [
+                'required' => ':attribute harus diisi.',
+                'email' => 'Format email tidak benar.',
+            ],
+            [
+                'rental' => 'Rental',
+                'full_name' => 'Nama Lengkap',
+                'email' => 'Surel',
+                'accomodation' => 'Rating Akomodasi',
+                'meal' => 'Rating Makanan',
+                'destination' => 'Rating Destinasi',
+                'transport' => 'Rating Kendaraan',
+                'value_for_money' => 'Rating Biaya',
+                'overall' => 'Rating Keseluruhan',
+                'message' => 'Rating Pesan',
+                'status' => 'Status',
+            ],
+        );
+        try {
+            $rentalRating = new RentalRating();
+            $rentalRating->rental_id = $request->rental;
+            $rentalRating->name = $request->full_name;
+            $rentalRating->email = $request->email;
+            $rentalRating->accomodation = $request->accomodation;
+            $rentalRating->meal = $request->meal;
+            $rentalRating->destination = $request->destination;
+            $rentalRating->transport = $request->transport;
+            $rentalRating->value_for_money = $request->value_for_money;
+            $rentalRating->overall = $request->overall;
+            $rentalRating->message = $request->message;
+            $rentalRating->status = $request->status;
+            $rentalRating->save();
+            
+
+            return redirect('/admin/rental/list-rating-rental')->withStatus('Berhasil menambahkan rating rental baru.');
+        } catch (\Exception $e) {
+            return redirect()->back()->withError($e->getMessage());
+        } catch (\Illuminate\Database\QueryException $e) {
+            return redirect()->back()->withError('Terjadi kesalahan pada database', $e->getMessage());
+        }
+    }
+
+    public function lrrUpdate(RentalRating $rentalRating){
+        try {
+            $updateRating = RentalRating::find($rentalRating->id);
+            $updateRating->status = 'sudah dibaca';
+            $updateRating->save();
+
+            return redirect('/admin/rental/list-rating-rental')->withStatus('Berhasil memperbarui rating rental.');
+        } catch (\Exception $e) {
+            return redirect()->back()->withError($e->getMessage());
+        } catch (\Illuminate\Database\QueryException $e) {
+            return redirect()->back()->withError('Terjadi kesalahan pada database', $e->getMessage());
+        }
+    }
+
+    public function lrrDrop(RentalRating $rentalRating){
+        try {
+            RentalRating::find($rentalRating->id)->delete();
+
+            return redirect('/admin/rental/list-rating-rental')->withStatus('Berhasil menghapus rating rental.');
+        } catch (\Exception $e) {
+            return redirect()->back()->withError($e->getMessage());
+        } catch (\Illuminate\Database\QueryException $e) {
+            return redirect()->back()->withError('Terjadi kesalahan pada database', $e->getMessage());
+        }
+    }
+
+    public function lrrAll(Request $request){
+        try {
+            RentalRating::where('status', 'belum dibaca')->update([
+                'status' => 'sudah dibaca'
+            ]);
+
+            return redirect('/admin/rental/list-rating-rental')->withStatus('Berhasil memperbarui rating paket.');
         } catch (\Exception $e) {
             return redirect()->back()->withError($e->getMessage());
         } catch (\Illuminate\Database\QueryException $e) {

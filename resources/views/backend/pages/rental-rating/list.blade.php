@@ -3,24 +3,24 @@
 <link href="{{asset('assets/backend/dashboard/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
 @endsection
 @section('onPage')
-Master Web > Paket > <span style="color: #4e73df;">List Paket Rating</span>
+Master Web > Rental > <span style="color: #4e73df;">List Rental Rating</span>
 @endsection
 @section('content')
 <div class="row">
     <div class="col-12">
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Form Data Rating Paket</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Form Data Rating Rental</h6>
             </div>
-            <form class="card-body" method="POST" enctype="multipart/form-data" action="{{url('/admin/packet/list-rating-packet/store')}}">
+            <form class="card-body" method="POST" enctype="multipart/form-data" action="{{url('/admin/rental/list-rating-rental/store')}}">
                 @csrf
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="packet" class="ml-1">Judul Paket* :</label>
-                            <select class="custom-select" name="packet">
-                                @foreach ($getPacket as $item)
-                                <option value="{{$item->id}}" @if(old('packet') == $item->id) selected @endif>{{$item->title}}</option>
+                            <label for="rental" class="ml-1">Judul Rental* :</label>
+                            <select class="custom-select" name="rental">
+                                @foreach ($getRental as $item)
+                                <option value="{{$item->id}}" @if(old('rental') == $item->id) selected @endif>{{$item->title}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -153,9 +153,9 @@ Master Web > Paket > <span style="color: #4e73df;">List Paket Rating</span>
         <div class="card shadow mb-4">
             <div class="card-header py-3">
                 <div class="d-flex justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary pt-2">List Data Rating Paket</h6>
-                    @if ($getCountRatingPacket > 0)
-                    <form action="{{url('/admin/packet/list-rating-packet/update/all')}}" method="POST">
+                    <h6 class="m-0 font-weight-bold text-primary pt-2">List Data Rating Rental</h6>
+                    @if ($getCountRatingRental > 0)
+                    <form action="{{url('/admin/rental/list-rating-rental/update/all')}}" method="POST">
                         @csrf
                         <button type="submit" class="btn btn-sm btn-info">
                             Tandai Semua Sudah Dilihat
@@ -166,11 +166,11 @@ Master Web > Paket > <span style="color: #4e73df;">List Paket Rating</span>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered thisDisplay" id="dataTableRatingPacket" width="100%" cellspacing="0">
+                    <table class="table table-bordered thisDisplay" id="dataTableRatingRental" width="100%" cellspacing="0">
                         <thead>
                             <tr>
                                 <th><center>No.</center></th>
-                                <th><center>Judul Paket</center></th>
+                                <th><center>Judul Rental</center></th>
                                 <th><center>Nama</center></th>
                                 <th><center>Surel</center></th>
                                 <th><center>Akomodasi</center></th>
@@ -184,7 +184,7 @@ Master Web > Paket > <span style="color: #4e73df;">List Paket Rating</span>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($getRatingPacket as $item)
+                            @foreach ($getRatingRental as $item)
                             <tr>
                                 <td class="align-middle"><center>{{$loop->iteration}}</center></td>
                                 <td class="align-middle">{{$item->title}}</td>
@@ -199,7 +199,7 @@ Master Web > Paket > <span style="color: #4e73df;">List Paket Rating</span>
                                 <td class="align-middle"><center><span class="badge @if ($item->status == 'sudah dibaca') bg-success @elseif ($item->status == 'belum dibaca') bg-secondary @endif p-2 text-white">{{$item->status}}</span></center></td>
                                 <td class="align-middle"><center>
                                     @if ($item->status != 'sudah dibaca')
-                                    <form action="{{url('/admin/packet/list-rating-packet')}}/{{$item->id}}/update" method="POST" class="d-inline">
+                                    <form action="{{url('/admin/rental/list-rating-rental')}}/{{$item->id}}/update" method="POST" class="d-inline">
                                         @method('PATCH')
                                         @csrf
                                         <button type="submit" class="btn btn-sm btn-info btn-circle">
@@ -207,7 +207,7 @@ Master Web > Paket > <span style="color: #4e73df;">List Paket Rating</span>
                                         </button>
                                     </form> |
                                     @endif
-                                    <form action="{{url('/admin/packet/list-rating-packet')}}/{{$item->id}}/drop" method="POST" class="d-inline">
+                                    <form action="{{url('/admin/rental/list-rating-rental')}}/{{$item->id}}/drop" method="POST" class="d-inline">
                                         @method('delete')
                                         @csrf
                                         <button type="submit" class="btn btn-sm btn-danger btn-circle" onclick="return confirm('Hapus Data ?')">
@@ -230,7 +230,7 @@ Master Web > Paket > <span style="color: #4e73df;">List Paket Rating</span>
 <script src="{{asset('assets/backend/dashboard/vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
 <script type="text/javascript">
     $(document).ready( function () {
-        $('#dataTableRatingPacket').DataTable();
+        $('#dataTableRatingRental').DataTable();
     });
 </script>
 @endsection
