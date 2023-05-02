@@ -31,6 +31,26 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     // dashboard
     Route::get('/dashboard', [App\Http\Controllers\Backend\DashboardController::class, 'index']);
 
+    // rental
+    Route::get('/rental/list-rental', [App\Http\Controllers\Backend\RentalController::class, 'lrIndex']);
+    Route::get('/rental/list-rental/add', [App\Http\Controllers\Backend\RentalController::class, 'lrAdd']);
+    Route::post('/rental/list-rental/store', [App\Http\Controllers\Backend\RentalController::class, 'lrStore']);
+    Route::get('/rental/list-rental/{rental}/edit', [App\Http\Controllers\Backend\RentalController::class, 'lrEdit']);
+    Route::patch('/rental/list-rental/update/{rental}', [App\Http\Controllers\Backend\RentalController::class, 'lrUpdate']);
+    Route::delete('/rental/list-rental/{rental}/drop', [App\Http\Controllers\Backend\RentalController::class, 'lrDrop']);
+
+    Route::get('/rental/list-gallery-rental', [App\Http\Controllers\Backend\RentalController::class, 'lrgIndex']);
+    Route::post('/rental/list-gallery-rental/store', [App\Http\Controllers\Backend\RentalController::class, 'lrgStore']);
+    Route::get('/rental/list-gallery-rental/{rentalGallery}/edit', [App\Http\Controllers\Backend\RentalController::class, 'lrgEdit']);
+    Route::patch('/rental/list-gallery-rental/update/{rentalGallery}', [App\Http\Controllers\Backend\RentalController::class, 'lrgUpdate']);
+    Route::delete('/rental/list-gallery-rental/{rentalGallery}/drop', [App\Http\Controllers\Backend\RentalController::class, 'lrgDrop']);
+    
+    Route::get('/rental/list-rating-rental', [App\Http\Controllers\Backend\RentalController::class, 'lrrIndex']);
+    Route::post('/rental/list-rating-rental/store', [App\Http\Controllers\Backend\RentalController::class, 'lrrStore']);
+    Route::patch('/rental/list-rating-rental/{rentalRating}/update', [App\Http\Controllers\Backend\RentalController::class, 'lrrUpdate']);
+    Route::delete('/rental/list-rating-rental/{rentalRating}/drop', [App\Http\Controllers\Backend\RentalController::class, 'lrrDrop']);
+    Route::post('/rental/list-rating-rental/update/all', [App\Http\Controllers\Backend\RentalController::class, 'lrrAll']);
+
     // packet
     Route::get('/packet/list-packet', [App\Http\Controllers\Backend\PacketController::class, 'lpaIndex']);
     Route::get('/packet/list-packet/add', [App\Http\Controllers\Backend\PacketController::class, 'lpaAdd']);
