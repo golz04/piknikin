@@ -177,4 +177,136 @@ class RentalController extends Controller
             return redirect()->back()->withError('Terjadi kesalahan pada database', $e->getMessage());
         }
     }
+
+    public function lrgIndex(){
+        try {
+            $this->param['getRental'] = Rental::all();
+            $this->param['getGalleryRental'] = \DB::table('rental_galeries')
+                                                    ->select('rentals.title', 'rental_galeries.*')
+                                                    ->join('rentals', 'rental_galeries.rental_id', 'rentals.id')
+                                                    ->get();
+
+            return view('backend.pages.rental-gallery.list', $this->param);
+        } catch (\Exception $e) {
+            return redirect()->back()->withError($e->getMessage());
+        } catch (\Illuminate\Database\QueryException $e) {
+            return redirect()->back()->withError('Terjadi kesalahan pada database', $e->getMessage());
+        }
+    }
+
+    public function lrgStore(Request $request){
+        $this->validate($request,
+            [
+                'rental' => 'required',
+                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+            ],
+            [
+                'required' => ':attribute harus diisi.',
+                'image' => ':attribute hanya boleh gambar.',
+                'mimes' => 'format yang boleh hanya jpeg,png,jpg,gif,svg.',
+            ],
+            [
+                'rental' => 'Rental',
+                'image' => 'Gambar Lainnya',
+            ],
+        );
+        try {
+            $date = date('H-i-s');
+            $random = \Str::random(5);
+
+            $rentalGallery = new RentalGalery();
+            $rentalGallery->rental_id = $request->rental;
+
+            if ($request->file('image')) {
+                $request->file('image')->move('assets/upload/rental-gallery', $date.$random.$request->file('image')->getClientOriginalName());
+                $rentalGallery->image = $date.$random.$request->file('image')->getClientOriginalName();
+            }
+
+            if($request->caption == '' || $request->caption == null){
+                $rentalGallery->caption = '-';
+            } else {
+                $rentalGallery->caption = $request->caption;
+            }
+
+            $rentalGallery->save();
+            
+
+            return redirect('/admin/rental/list-gallery-rental')->withStatus('Berhasil menambahkan galeri rental baru.');
+        } catch (\Exception $e) {
+            return redirect()->back()->withError($e->getMessage());
+        } catch (\Illuminate\Database\QueryException $e) {
+            return redirect()->back()->withError('Terjadi kesalahan pada database', $e->getMessage());
+        }
+    }
+
+    public function lrgEdit(RentalGalery $rentalGallery){
+        try {
+            $this->param['getRental'] = Rental::all();
+            $this->param['getGalleryRentalDetail'] = RentalGalery::find($rentalGallery->id);
+
+            return view('backend.pages.rental-gallery.edit', $this->param);
+        } catch (\Exception $e) {
+            return redirect()->back()->withError($e->getMessage());
+        } catch (\Illuminate\Database\QueryException $e) {
+            return redirect()->back()->withError('Terjadi kesalahan pada database', $e->getMessage());
+        }
+    }
+
+    public function lrgUpdate(Request $request, RentalGalery $rentalGallery){
+        $this->validate($request,
+            [
+                'rental' => 'required',
+            ],
+            [
+                'required' => ':attribute harus diisi.',
+            ],
+            [
+                'rental' => 'Paket',
+            ],
+        );
+        try {
+            $date = date('H-i-s');
+            $random = \Str::random(5);
+
+            $rentalGallery = RentalGalery::find($rentalGallery->id);
+            $rentalGallery->rental_id = $request->rental;
+
+            if ($request->file('image')) {
+                $rentalPath = 'assets/upload/rental-gallery/';
+                File::delete($rentalPath.$rentalGallery->image);
+
+                $request->file('image')->move('assets/upload/rental-gallery', $date.$random.$request->file('image')->getClientOriginalName());
+                $rentalGallery->image = $date.$random.$request->file('image')->getClientOriginalName();
+            }
+
+            if($request->caption == '' || $request->caption == null){
+                $rentalGallery->caption = '-';
+            } else {
+                $rentalGallery->caption = $request->caption;
+            }
+
+            $rentalGallery->save();
+            
+
+            return redirect('/admin/rental/list-gallery-rental')->withStatus('Berhasil memperbarui galeri rental.');
+        } catch (\Exception $e) {
+            return redirect()->back()->withError($e->getMessage());
+        } catch (\Illuminate\Database\QueryException $e) {
+            return redirect()->back()->withError('Terjadi kesalahan pada database', $e->getMessage());
+        }
+    }
+
+    public function lrgDrop(RentalGalery $rentalGallery){
+        try {
+            $rentalPath = 'assets/upload/rental-gallery/';
+            File::delete($rentalPath.$rentalGallery->image);
+            RentalGalery::find($rentalGallery->id)->delete();
+
+            return redirect('/admin/rental/list-gallery-rental')->withStatus('Berhasil menghapus galeri rental.');
+        } catch (\Exception $e) {
+            return redirect()->back()->withError($e->getMessage());
+        } catch (\Illuminate\Database\QueryException $e) {
+            return redirect()->back()->withError('Terjadi kesalahan pada database', $e->getMessage());
+        }
+    }
 }
