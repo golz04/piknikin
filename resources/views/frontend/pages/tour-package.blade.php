@@ -11,107 +11,25 @@
 <section id="custom-packet" class="custom-packet section-bg">
     <div class="container" data-aos="fade-up">
         <div class="row mt-3">
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+            @forelse ($getPacket as $item)
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="{{$loop->iteration}}00">
                 <div class="custom-card-packet">
                     <div class="custom-card-packet-img">
                         <div style="height: 250px;">
-                            <img src="{{asset('assets/upload/packet/kawah-ijen.jpeg')}}" class="img-fluid w-100 h-100" alt="">
+                            <img src="{{asset('assets/upload/packet/'.$item->thumbnail)}}" class="img-fluid w-100 h-100" alt="">
                         </div>
                         <div class="social">
-                            <a href="{{url('/tour-packages/detail')}}"><i class="bi bi-eye"></i></a>
+                            <a href="{{url('/tour-packages/detail/'.$item->slug)}}"><i class="bi bi-eye"></i></a>
                         </div>
                     </div>
                     <div class="custom-card-packet-info">
-                        <h4>Paket Wisata 4 Hari 3 Malam</h4>
-                        <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus, alias?</span>
+                        <h4>{{$item->title}}</h4>
+                        <span>{{ \Illuminate\Support\Str::limit($item->description, 100, $end='...') }}</span>
                     </div>
                 </div>
             </div>
-
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-                <div class="custom-card-packet">
-                    <div class="custom-card-packet-img">
-                        <div style="height: 250px;">
-                            <img src="{{asset('assets/upload/packet/baluran.jpg')}}" class="img-fluid w-100 h-100" alt="">
-                        </div>
-                        <div class="social">
-                            <a href="{{url('/tour-packages/detail')}}"><i class="bi bi-eye"></i></a>
-                        </div>
-                    </div>
-                    <div class="custom-card-packet-info">
-                        <h4>Paket Wisata 3 Hari 2 Malam</h4>
-                        <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus, alias?</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
-                <div class="custom-card-packet">
-                    <div class="custom-card-packet-img">
-                        <div style="height: 250px;">
-                            <img src="{{asset('assets/upload/packet/dialoog.jpg')}}" class="img-fluid w-100 h-100" alt="">
-                        </div>
-                        <div class="social">
-                            <a href="{{url('/tour-packages/detail')}}"><i class="bi bi-eye"></i></a>
-                        </div>
-                    </div>
-                    <div class="custom-card-packet-info">
-                        <h4>Paket Wisata 2 Hari 1 Malam</h4>
-                        <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus, alias?</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
-                <div class="custom-card-packet">
-                    <div class="custom-card-packet-img">
-                        <div style="height: 250px;">
-                            <img src="{{asset('assets/upload/packet/dialoog.jpg')}}" class="img-fluid w-100 h-100" alt="">
-                        </div>
-                        <div class="social">
-                            <a href="{{url('/tour-packages/detail')}}"><i class="bi bi-eye"></i></a>
-                        </div>
-                    </div>
-                    <div class="custom-card-packet-info">
-                        <h4>Paket Wisata 2 Hari 1 Malam</h4>
-                        <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus, alias?</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-                <div class="custom-card-packet">
-                    <div class="custom-card-packet-img">
-                        <div style="height: 250px;">
-                            <img src="{{asset('assets/upload/packet/baluran.jpg')}}" class="img-fluid w-100 h-100" alt="">
-                        </div>
-                        <div class="social">
-                            <a href="{{url('/tour-packages/detail')}}"><i class="bi bi-eye"></i></a>
-                        </div>
-                    </div>
-                    <div class="custom-card-packet-info">
-                        <h4>Paket Wisata 3 Hari 2 Malam</h4>
-                        <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus, alias?</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-                <div class="custom-card-packet">
-                    <div class="custom-card-packet-img">
-                        <div style="height: 250px;">
-                            <img src="{{asset('assets/upload/packet/kawah-ijen.jpeg')}}" class="img-fluid w-100 h-100" alt="">
-                        </div>
-                        <div class="social">
-                            <a href="{{url('/tour-packages/detail')}}"><i class="bi bi-eye"></i></a>
-                        </div>
-                    </div>
-                    <div class="custom-card-packet-info">
-                        <h4>Paket Wisata 4 Hari 3 Malam</h4>
-                        <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus, alias?</span>
-                    </div>
-                </div>
-            </div>
+            @empty
+            @endforelse
         </div>
     </div>
 </section>

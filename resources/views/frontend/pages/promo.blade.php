@@ -20,104 +20,53 @@
                     </div>
                 </div>
                 <div class="row">
+                    @forelse ($getPromo as $item)
                     <div class="col-md-12">
                         <article class="postcard light blue">
                             <div class="postcard__text t-dark">
-                                <h1 class="postcard__title blue"><a href="#">Podcast Title</a></h1>
+                                <h1 class="postcard__title blue"><a href="{{url('/promo/detail/'.$item->slug)}}">{{$item->title}}</a></h1>
                                 <div class="postcard__subtitle small">
                                     <time datetime="2020-05-25 12:00:00">
-                                        <i class="fas fa-calendar-alt mr-2"></i>Mon, May 25th 2020
+                                        <i class="fas fa-calendar-alt mr-2"></i>{{ \Carbon\Carbon::parse($item->date_post)->format('D, d F Y') }}
                                     </time>
                                 </div>
                                 <div class="postcard__bar"></div>
-                                <div class="postcard__preview-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero. Eveniet ipsam adipisci illo iusto quibusdam, sunt neque nulla unde ipsum dolores nobis enim quidem excepturi, illum quos!</div>
+                                <div class="postcard__preview-txt">Baca lebih detail tentang promo "{{$item->title}}" yang dirilis pada {{ \Carbon\Carbon::parse($item->date_post)->format('d F Y') }} dengan menekan tombol dibawah ini.</div>
                                 <div>
-                                    <a href="{{url('/promo/detail')}}" class="btn btn-outline-primary mt-3 fs-8">Lebih Detail</a>
+                                    <a href="{{url('/promo/detail/'.$item->slug)}}" class="btn btn-outline-primary mt-3 fs-8">Lebih Detail</a>
                                 </div>
                             </div>
-                            <a class="postcard__img_link" href="#">
-                                <img class="postcard__img" src="{{asset('assets/upload/packet/kawah-ijen.jpeg')}}" alt="Image Title" />
+                            <a class="postcard__img_link" href="{{url('/promo/detail/'.$item->slug)}}">
+                                <img class="postcard__img" src="{{asset('assets/upload/promo/'.$item->thumbnail)}}" alt="Image Title" />
                             </a>
                         </article>
                     </div>
-                    <div class="col-md-12">
-                        <article class="postcard light blue">
-                            <div class="postcard__text t-dark">
-                                <h1 class="postcard__title blue"><a href="#">Podcast Title</a></h1>
-                                <div class="postcard__subtitle small">
-                                    <time datetime="2020-05-25 12:00:00">
-                                        <i class="fas fa-calendar-alt mr-2"></i>Mon, May 25th 2020
-                                    </time>
-                                </div>
-                                <div class="postcard__bar"></div>
-                                <div class="postcard__preview-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero. Eveniet ipsam adipisci illo iusto quibusdam, sunt neque nulla unde ipsum dolores nobis enim quidem excepturi, illum quos!</div>
-                                <div>
-                                    <a href="{{url('/promo/detail')}}" class="btn btn-outline-primary mt-3 fs-8">Lebih Detail</a>
-                                </div>
-                            </div>
-                            <a class="postcard__img_link" href="#">
-                                <img class="postcard__img" src="{{asset('assets/upload/packet/kawah-ijen.jpeg')}}" alt="Image Title" />
-                            </a>
-                        </article>
-                    </div>
-                    <div class="col-md-12">
-                        <article class="postcard light blue">
-                            <div class="postcard__text t-dark">
-                                <h1 class="postcard__title blue"><a href="#">Podcast Title</a></h1>
-                                <div class="postcard__subtitle small">
-                                    <time datetime="2020-05-25 12:00:00">
-                                        <i class="fas fa-calendar-alt mr-2"></i>Mon, May 25th 2020
-                                    </time>
-                                </div>
-                                <div class="postcard__bar"></div>
-                                <div class="postcard__preview-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero. Eveniet ipsam adipisci illo iusto quibusdam, sunt neque nulla unde ipsum dolores nobis enim quidem excepturi, illum quos!</div>
-                                <div>
-                                    <a href="{{url('/promo/detail')}}" class="btn btn-outline-primary mt-3 fs-8">Lebih Detail</a>
-                                </div>
-                            </div>
-                            <a class="postcard__img_link" href="#">
-                                <img class="postcard__img" src="{{asset('assets/upload/packet/kawah-ijen.jpeg')}}" alt="Image Title" />
-                            </a>
-                        </article>
-                    </div>
+                    @empty
+                    @endforelse
                 </div>
             </div>
 
             <div class="col-md-3">
                 <div class="row sticky-top" style="padding-top: 100px;">
+                    @forelse ($getPacket as $item)
                     <div class="col-md-12 d-flex align-items-stretch">
                         <div class="custom-card-packet">
                             <div class="custom-card-packet-img">
                                 <div style="height: 250px;">
-                                    <img src="{{asset('assets/upload/packet/kawah-ijen.jpeg')}}" class="img-fluid w-100 h-100" alt="">
+                                    <img src="{{asset('assets/upload/packet/'.$item->thumbnail)}}" class="img-fluid w-100 h-100" alt="">
                                 </div>
                                 <div class="social">
-                                    <a href="{{url('/tour-packages/detail')}}"><i class="bi bi-eye"></i></a>
+                                    <a href="{{url('/tour-packages/detail/'.$item->slug)}}"><i class="bi bi-eye"></i></a>
                                 </div>
                             </div>
                             <div class="custom-card-packet-info">
-                                <h4>Paket Wisata 4 Hari 3 Malam</h4>
-                                <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus, alias?</span>
+                                <h4>{{$item->title}}</h4>
+                                <span>{{ \Illuminate\Support\Str::limit($item->description, 100, $end='...') }}</span>
                             </div>
                         </div>
                     </div>
-        
-                    <div class="col-md-12 d-flex align-items-stretch">
-                        <div class="custom-card-packet">
-                            <div class="custom-card-packet-img">
-                                <div style="height: 250px;">
-                                    <img src="{{asset('assets/upload/packet/baluran.jpg')}}" class="img-fluid w-100 h-100" alt="">
-                                </div>
-                                <div class="social">
-                                    <a href="{{url('/tour-packages/detail')}}"><i class="bi bi-eye"></i></a>
-                                </div>
-                            </div>
-                            <div class="custom-card-packet-info">
-                                <h4>Paket Wisata 3 Hari 2 Malam</h4>
-                                <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus, alias?</span>
-                            </div>
-                        </div>
-                    </div>
+                    @empty
+                    @endforelse
                 </div>
             </div>
         </div>

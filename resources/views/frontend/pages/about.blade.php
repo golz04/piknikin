@@ -35,30 +35,20 @@
         </div>
         <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
             <div class="swiper-wrapper">
+                @foreach ($getTestimonial as $item)
                 <div class="swiper-slide">
                     <div class="testimonial-item">
-                        <img src="{{asset('assets/frontend/img/testimonials/testimonials-2.jpg')}}" class="testimonial-img" alt="">
-                        <h3>Cilla</h3>
-                        <h4>Ceo &amp; Founder</h4>
+                        <img src="{{asset('assets/upload/testimonial/'.$item->avatar)}}" class="testimonial-img" alt="">
+                        <h3>{{$item->name}}</h3>
+                        <h4>{{$item->job}}</h4>
                         <p>
                             <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                            Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                            {{$item->message}}
                             <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                         </p>
                     </div>
                 </div>
-                <div class="swiper-slide">
-                    <div class="testimonial-item">
-                        <img src="{{asset('assets/frontend/img/testimonials/testimonials-1.jpg')}}" class="testimonial-img" alt="">
-                        <h3>Haidar</h3>
-                        <h4>CTO &amp; App</h4>
-                        <p>
-                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                            Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
-                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                        </p>
-                    </div>
-                </div>
+                @endforeach
             </div>
             <div class="swiper-pagination"></div>
         </div>

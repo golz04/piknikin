@@ -10,55 +10,18 @@
 @section('content')
 <section id="portfolio" class="portfolio section-bg">
     <div class="container" data-aos="fade-up">
-        <div class="row portfolio-container mt-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                <img src="{{asset('assets/upload/banner-rental/rental-mobil.jpg')}}" class="img-fluid shadow rounded w-100" alt="">
+        <div class="row portfolio-container mt-4">
+            @forelse ($getRental as $item)
+            <div class="col-lg-4 col-md-6 portfolio-item filter-web" data-aos="fade-up" data-aos-delay="{{$loop->iteration}}00">
+                <img src="{{asset('assets/upload/rental/'.$item->thumbnail)}}" class="img-fluid shadow rounded w-100" alt="">
                 <div class="portfolio-info">
-                    <h4>Sewa Mobil</h4>
-                    <p>Harga Mulai : Rp.200.000</p>
-                    <a href="{{url('/rental/detail')}}" class="portfolio-lightbox preview-link" title="Web 3"><i class="bi bi-eye"></i></a>
+                    <h4>{{$item->title}}</h4>
+                    <p>Harga Mulai : @currency($item->start_from)</p>
+                    <a href="{{url('/rental/detail/'.$item->slug)}}" class="portfolio-lightbox preview-link" title="Web 3"><i class="bi bi-eye"></i></a>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                <img src="{{asset('assets/upload/banner-rental/rental-motor.webp')}}" class="img-fluid shadow rounded w-100" alt="">
-                <div class="portfolio-info">
-                    <h4>Sewa Sepeda Motor</h4>
-                    <p>Harga Mulai : Rp.100.000</p>
-                    <a href="{{url('/rental/detail')}}" class="portfolio-lightbox preview-link" title="Web 3"><i class="bi bi-eye"></i></a>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                <img src="{{asset('assets/upload/banner-rental/rental-travel.jpg')}}" class="img-fluid shadow rounded w-100" alt="">
-                <div class="portfolio-info">
-                    <h4>Sewa Travel</h4>
-                    <p>Harga Mulai : Rp.100.000</p>
-                    <a href="{{url('/rental/detail')}}" class="portfolio-lightbox preview-link" title="Web 3"><i class="bi bi-eye"></i></a>
-                </div>
-            </div>  
-            <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                <img src="{{asset('assets/upload/banner-rental/rental-bus.jpg')}}" class="img-fluid shadow rounded w-100" alt="">
-                <div class="portfolio-info">
-                    <h4>Sewa Bus</h4>
-                    <p>Harga Mulai : Rp.100.000</p>
-                    <a href="{{url('/rental/detail')}}" class="portfolio-lightbox preview-link" title="Web 3"><i class="bi bi-eye"></i></a>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                <img src="{{asset('assets/upload/banner-rental/rental-elf.jpg')}}" class="img-fluid shadow rounded w-100" alt="">
-                <div class="portfolio-info">
-                    <h4>Sewa Elf</h4>
-                    <p>Harga Mulai : Rp.100.000</p>
-                    <a href="{{url('/rental/detail')}}" class="portfolio-lightbox preview-link" title="Web 3"><i class="bi bi-eye"></i></a>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                <img src="{{asset('assets/upload/banner-rental/rental-elf.jpg')}}" class="img-fluid shadow rounded w-100" alt="">
-                <div class="portfolio-info">
-                    <h4>Sewa Elf</h4>
-                    <p>Harga Mulai : Rp.100.000</p>
-                    <a href="{{url('/rental/detail')}}" class="portfolio-lightbox preview-link" title="Web 3"><i class="bi bi-eye"></i></a>
-                </div>
-            </div>
+            @empty
+            @endforelse
         </div>
     </div>
 </section>

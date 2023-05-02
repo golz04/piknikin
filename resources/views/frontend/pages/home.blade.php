@@ -85,56 +85,25 @@
         </div>
 
         <div class="row">
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-                <div class="custom-card-packet">
-                    <div class="custom-card-packet-img">
-                        <div style="height: 250px;">
-                            <img src="{{asset('assets/upload/packet/kawah-ijen.jpeg')}}" class="img-fluid w-100 h-100" alt="">
+            @forelse ($getPacket as $item)
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="{{$loop->iteration}}00">
+                    <div class="custom-card-packet">
+                        <div class="custom-card-packet-img">
+                            <div style="height: 250px;">
+                                <img src="{{asset('assets/upload/packet/'.$item->thumbnail)}}" class="img-fluid w-100 h-100" alt="">
+                            </div>
+                            <div class="social">
+                                <a href="{{url('/tour-packages/detail/'.$item->slug)}}"><i class="bi bi-eye"></i></a>
+                            </div>
                         </div>
-                        <div class="social">
-                            <a href="{{url('/tour-packages/detail')}}"><i class="bi bi-eye"></i></a>
+                        <div class="custom-card-packet-info">
+                            <h4>{{$item->title}}</h4>
+                            <span>{{ \Illuminate\Support\Str::limit($item->description, 100, $end='...') }}</span>
                         </div>
-                    </div>
-                    <div class="custom-card-packet-info">
-                        <h4>Paket Wisata 4 Hari 3 Malam</h4>
-                        <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus, alias?</span>
                     </div>
                 </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-                <div class="custom-card-packet">
-                    <div class="custom-card-packet-img">
-                        <div style="height: 250px;">
-                            <img src="{{asset('assets/upload/packet/baluran.jpg')}}" class="img-fluid w-100 h-100" alt="">
-                        </div>
-                        <div class="social">
-                            <a href="{{url('/tour-packages/detail')}}"><i class="bi bi-eye"></i></a>
-                        </div>
-                    </div>
-                    <div class="custom-card-packet-info">
-                        <h4>Paket Wisata 3 Hari 2 Malam</h4>
-                        <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus, alias?</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
-                <div class="custom-card-packet">
-                    <div class="custom-card-packet-img">
-                        <div style="height: 250px;">
-                            <img src="{{asset('assets/upload/packet/dialoog.jpg')}}" class="img-fluid w-100 h-100" alt="">
-                        </div>
-                        <div class="social">
-                            <a href="{{url('/tour-packages/detail')}}"><i class="bi bi-eye"></i></a>
-                        </div>
-                    </div>
-                    <div class="custom-card-packet-info">
-                        <h4>Paket Wisata 2 Hari 1 Malam</h4>
-                        <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus, alias?</span>
-                    </div>
-                </div>
-            </div>
+            @empty
+            @endforelse
         </div>
 
         <div class="row">
@@ -172,27 +141,16 @@
         </div>
         
         <div class="row gallery">
-            <div class="col-lg-4 col-md-4 col-xs-6 thumb">
-                <a href="{{asset('assets/upload/packet/kawah-ijen.jpeg')}}">
+            @forelse ($getDestination as $item)
+            <div class="col-lg-4 col-md-4 col-xs-6 thumb" data-aos="fade-up" data-aos-delay="{{$loop->iteration}}00">
+                <a href="{{asset('assets/upload/destination/'.$item->image)}}">
                     <figure style="height: 280px;">
-                        <img class="img-fluid img-thumbnail h-100" src="{{asset('assets/upload/packet/kawah-ijen.jpeg')}}" alt="Random Image">
+                        <img class="img-fluid img-thumbnail h-100" src="{{asset('assets/upload/destination/'.$item->image)}}" alt="Random Image">
                     </figure>
                 </a>
             </div>
-            <div class="col-lg-4 col-md-4 col-xs-6 thumb ">
-                <a href="{{asset('assets/upload/packet/baluran.jpg')}}">
-                    <figure style="height: 280px;">
-                        <img class="img-fluid img-thumbnail h-100" src="{{asset('assets/upload/packet/baluran.jpg')}}" alt="Random Image">
-                    </figure>
-                </a>
-            </div>
-            <div class="col-lg-4 col-md-4 col-xs-6 thumb">
-                <a href="{{asset('assets/upload/packet/dialoog.jpg')}}">
-                    <figure style="height: 280px;">
-                        <img class="img-fluid img-thumbnail h-100" src="{{asset('assets/upload/packet/dialoog.jpg')}}" alt="Random Image">
-                    </figure>
-                </a>
-            </div>
+            @empty
+            @endforelse
         </div>
     </div>
 </section>
@@ -206,53 +164,24 @@
         </div>
 
         <div class="row">
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+            @forelse ($getArticle as $item)
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="{{$loop->iteration}}00">
                 <div class="custom-card-article">
                     <div class="custom-card-article-img">
                         <div style="height: 250px;">
-                            <img src="{{asset('assets/upload/packet/kawah-ijen.jpeg')}}" class="img-fluid w-100 h-100" alt="">
+                            <img src="{{asset('assets/upload/article/'.$item->thumbnail)}}" class="img-fluid w-100 h-100" alt="">
                         </div>
                     </div>
                     <div class="custom-card-article-info">
-                        <P>APRIL, 2023</P>
-                        <h4 style="height: 60px;">Jawa Timur Park 4 Banyuwangi, Wisata Edukasi Budaya Banyuwangi Hingga Museum Santet</h4>
-                        <span class="mt-3" style="height: 50px;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus, alias?</span>
-                        <a href="{{url('/article/detail')}}" class="btn btn-outline-primary fs-8">Lebih Detail</a>
+                        <P>{{ \Carbon\Carbon::parse($item->created_at)->format('F Y') }}</P>
+                        <h4 style="height: 60px;">{{$item->title}}</h4>
+                        <span class="mt-3" style="height: 50px;">Lihat artikel berjudul "{{$item->title}}" selengkapnya dengan menekan tombol dibawah.</span>
+                        <a href="{{url('/article/detail/'.$item->slug)}}" class="btn btn-outline-primary mt-3 fs-8">Lebih Detail</a>
                     </div>
                 </div>
             </div>
-
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-                <div class="custom-card-article">
-                    <div class="custom-card-article-img">
-                        <div style="height: 250px;">
-                            <img src="{{asset('assets/upload/packet/baluran.jpg')}}" class="img-fluid w-100 h-100" alt="">
-                        </div>
-                    </div>
-                    <div class="custom-card-article-info">
-                        <P>APRIL, 2023</P>
-                        <h4 style="height: 60px;">Banyuwangi Festival 2023, Jadwal Pelaksanaan dan Informasi Terkini</h4>
-                        <span class="mt-3" style="height: 50px;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus, alias?</span>
-                        <a href="{{url('/article/detail')}}" class="btn btn-outline-primary fs-8">Lebih Detail</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
-                <div class="custom-card-article">
-                    <div class="custom-card-article-img">
-                        <div style="height: 250px;">
-                            <img src="{{asset('assets/upload/packet/dialoog.jpg')}}" class="img-fluid w-100 h-100" alt="">
-                        </div>
-                    </div>
-                    <div class="custom-card-article-info">
-                        <P>APRIL, 2023</P>
-                        <h4 style="height: 60px;">Menyambut Banyuwangi Ethno Carnival BEC 2022: Taman Sarine Nusantara</h4>
-                        <span class="mt-3" style="height: 50px;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus, alias?</span>
-                        <a href="{{url('/article/detail')}}" class="btn btn-outline-primary fs-8">Lebih Detail</a>
-                    </div>
-                </div>
-            </div>
+            @empty
+            @endforelse
         </div>
 
         <div class="row">
