@@ -42,7 +42,7 @@ Master Web > Paket > <span style="color: #4e73df;">List Paket</span>
                             <tr>
                                 <td class="align-middle"><center>{{$loop->iteration}}</center></td>
                                 <td class="align-middle">{{$item->title}}</td>
-                                <td class="align-middle">{{$item->start_from}}</td>
+                                <td class="align-middle">@currency($item->start_from)</td>
                                 <td class="align-middle">{{$item->created_at}}</td>
                                 <td class="align-middle"><center><img src="{{asset('assets/upload/rental/'.$item->thumbnail)}}" style="width: 150px;"></center></td>
                                 <td class="align-middle"><center>

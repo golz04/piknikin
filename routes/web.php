@@ -136,6 +136,10 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::get('/account/{user}/detail', [App\Http\Controllers\Backend\AccountController::class, 'detail']);
     Route::patch('/account/{user}/reset', [App\Http\Controllers\Backend\AccountController::class, 'reset']);
     Route::delete('/account/{user}/drop', [App\Http\Controllers\Backend\AccountController::class, 'drop']);
+
+    Route::get('/account/edit-profile', [App\Http\Controllers\Backend\AccountController::class, 'editProfile']);
+    Route::post('/account/save-profile', [App\Http\Controllers\Backend\AccountController::class, 'saveProfile']);
+    Route::post('/account/save-profile-password', [App\Http\Controllers\Backend\AccountController::class, 'saveProfilePassword']);
 });
 
 Auth::routes();

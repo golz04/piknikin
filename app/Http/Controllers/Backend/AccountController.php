@@ -111,4 +111,88 @@ class AccountController extends Controller
             return redirect()->back()->withError('Terjadi kesalahan pada database', $e->getMessage());
         }
     }
+
+    public function editProfile(){
+        try {
+            return view('backend.pages.account.edit-profile');
+        } catch (\Exception $e) {
+            return redirect()->back()->withError($e->getMessage());
+        } catch (\Illuminate\Database\QueryException $e) {
+            return redirect()->back()->withError('Terjadi kesalahan pada database', $e->getMessage());
+        }
+    }
+
+    public function saveProfile(Request $request){
+        if($request->email == auth()->user()->email)
+            {
+                $this->validate($request,
+                    [
+                        'name' => 'required',
+                        'password' => 'required'
+                    ],
+                    [
+                        'required' => ':attribute harus diisi.',
+                    ],
+                    [
+                        'name' => 'Nama Pengguna',
+                        'password' => 'Kata Sandi Saat Ini',
+                    ],
+                );
+            }
+            else
+            {
+                $request->validate([
+                    'name' => 'required',
+                    'email' => 'required|min:6|max:32|unique:users',
+                    'password' => 'required'
+                ]);
+            }
+
+        try {
+            $last_password = $request->password;
+            if(\Hash::check($last_password, auth()->user()->password))
+            {
+                User::where('id', auth()->user()->id)->update([
+                    'name' => $request->name,
+                    'email' => $request->email
+                ]);
+                return redirect('/admin/dashboard')->withStatus('Berhasil Memperbarui Profil');
+            }
+            else
+            {
+                return redirect('/admin/dashboard')->withStatus('Gagal Memperbarui Profil');
+            }
+        } catch (\Exception $e) {
+            return redirect()->back()->withError($e->getMessage());
+        } catch (\Illuminate\Database\QueryException $e) {
+            return redirect()->back()->withError('Terjadi kesalahan pada database', $e->getMessage());
+        }
+    }
+
+    public function saveProfilePassword(Request $request){
+        $request->validate([
+            'new_password' => 'Required_with:confirm-password|same:confirm-password|min:8',
+            'confirm-password' => 'min:8',
+            'password' => 'Required'
+        ]);
+        
+        try {
+            $last_password = $request->password;
+            if(\Hash::check($last_password, auth()->user()->password))
+            {
+                User::where('id', auth()->user()->id)->update([
+                    'password' => bcrypt($request->new_password)
+                ]);
+                return redirect('/admin/dashboard')->withStatus('Berhasil Memperbarui Profil');
+            }
+            else
+            {
+                return redirect('/admin/dashboard')->withStatus('Gagal Memperbarui Profil');
+            }
+        } catch (\Exception $e) {
+            return redirect()->back()->withError($e->getMessage());
+        } catch (\Illuminate\Database\QueryException $e) {
+            return redirect()->back()->withError('Terjadi kesalahan pada database', $e->getMessage());
+        }
+    }
 }
