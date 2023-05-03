@@ -17,16 +17,21 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [App\Http\Controllers\Frontend\HomeController::class, 'index']);
 Route::get('/rental', [App\Http\Controllers\Frontend\RentalController::class, 'index']);
 Route::get('/rental/detail', [App\Http\Controllers\Frontend\RentalController::class, 'detail']);
+
 Route::get('/tour-packages', [App\Http\Controllers\Frontend\TourPackageController::class, 'index']);
 Route::get('/tour-packages/detail/{slug}', [App\Http\Controllers\Frontend\TourPackageController::class, 'detail']);
 Route::post('/tour-packages/detail/send/{slug}', [App\Http\Controllers\Frontend\TourPackageController::class, 'comment']);
 Route::get('/tour-packages/request', [App\Http\Controllers\Frontend\TourPackageController::class, 'request']);
 Route::post('/tour-packages/request/send', [App\Http\Controllers\Frontend\TourPackageController::class, 'send']);
+
 Route::get('/promo', [App\Http\Controllers\Frontend\PromoController::class, 'index']);
-Route::get('/promo/detail', [App\Http\Controllers\Frontend\PromoController::class, 'detail']);
+Route::get('/promo/detail/{slug}', [App\Http\Controllers\Frontend\PromoController::class, 'detail']);
+Route::post('/promo/detail/send/{slug}', [App\Http\Controllers\Frontend\PromoController::class, 'comment']);
+
 Route::get('/article', [App\Http\Controllers\Frontend\ArticleController::class, 'index']);
 Route::get('/article/detail/{slug}', [App\Http\Controllers\Frontend\ArticleController::class, 'detail']);
 Route::post('/article/detail/send/{slug}', [App\Http\Controllers\Frontend\ArticleController::class, 'comment']);
+
 Route::get('/about-us', [App\Http\Controllers\Frontend\AboutController::class, 'index']);
 
 // Start BE
