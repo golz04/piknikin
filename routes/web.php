@@ -16,7 +16,8 @@ use Illuminate\Support\Facades\Route;
 // Start FE
 Route::get('/', [App\Http\Controllers\Frontend\HomeController::class, 'index']);
 Route::get('/rental', [App\Http\Controllers\Frontend\RentalController::class, 'index']);
-Route::get('/rental/detail', [App\Http\Controllers\Frontend\RentalController::class, 'detail']);
+Route::get('/rental/detail/{slug}', [App\Http\Controllers\Frontend\RentalController::class, 'detail']);
+Route::post('/rental/detail/send/{slug}', [App\Http\Controllers\Frontend\RentalController::class, 'comment']);
 
 Route::get('/tour-packages', [App\Http\Controllers\Frontend\TourPackageController::class, 'index']);
 Route::get('/tour-packages/detail/{slug}', [App\Http\Controllers\Frontend\TourPackageController::class, 'detail']);
