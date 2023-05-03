@@ -33,6 +33,7 @@ Route::get('/article/detail/{slug}', [App\Http\Controllers\Frontend\ArticleContr
 Route::post('/article/detail/send/{slug}', [App\Http\Controllers\Frontend\ArticleController::class, 'comment']);
 
 Route::get('/about-us', [App\Http\Controllers\Frontend\AboutController::class, 'index']);
+Route::post('/about-us/feedback/send', [App\Http\Controllers\Frontend\AboutController::class, 'feedback']);
 
 // Start BE
 Route::middleware(['auth'])->prefix('admin')->group(function () {

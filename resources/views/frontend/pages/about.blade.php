@@ -90,30 +90,52 @@
                 <iframe class="mb-4 mb-lg-0" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15795.733718748328!2d114.3738107!3d-8.2094498!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd145fe8d8ad845%3A0xc19d0e217f5ccb7b!2sAlun%20Alun%20Kota%20Banyuwangi!5e0!3m2!1sid!2sid!4v1681402872220!5m2!1sid!2sid" frameborder="0" style="border:0; width: 100%; height: 384px;" allowfullscreen></iframe>
             </div>
             <div class="col-lg-6">
-                <form action="#" method="post" role="form" class="php-email-form">
+                <form action="{{url('/about-us/feedback/send')}}" method="post" role="form" class="php-email-form">
+                    @csrf
                     <div class="row">
                         <div class="col form-group">
-                            <input type="text" name="name" class="form-control" id="name" placeholder="Nama Lengkap" required>
+                            <label style="font-size: 11pt; margin-left: 3px; margin-bottom: 3px;" for="full_name">Nama Lengkap :</label>
+                            <input type="text" name="full_name" class="form-control @error('full_name') is-invalid @enderror" id="full_name" placeholder="Nama Lengkap" value="{{old('full_name')}}">
+                            @error('full_name')
+                                <div class="invalid-feedback">
+                                    {{$message}}
+                                </div>
+                            @enderror
                         </div>
                         <div class="col form-group">
-                            <input type="email" class="form-control" name="email" id="email" placeholder="Surel" required>
+                            <label style="font-size: 11pt; margin-left: 3px; margin-bottom: 3px;" for="email">Surel :</label>
+                            <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" id="email" placeholder="Surel" value="{{old('email')}}">
+                            @error('email')
+                                <div class="invalid-feedback">
+                                    {{$message}}
+                                </div>
+                            @enderror
                         </div>
                     </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" name="subject" id="subject" placeholder="Kritik dan Saran" required>
+                    <div class="col form-group">
+                        <label style="font-size: 11pt; margin-left: 3px; margin-bottom: 3px;" for="feedback">Kritik dan Saran :</label>
+                        <input type="text" name="feedback" class="form-control @error('feedback') is-invalid @enderror" id="feedback" placeholder="Kritik dan Saran" value="{{old('feedback')}}">
+                        @error('feedback')
+                            <div class="invalid-feedback">
+                                {{$message}}
+                            </div>
+                        @enderror
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control" name="message" rows="5" placeholder="Pesan..." required></textarea>
+                        <label style="font-size: 11pt; margin-left: 3px; margin-bottom: 3px;" for="message">Komentar :</label>
+                        <textarea class="form-control @error('message') is-invalid @enderror" name="message" rows="5" placeholder="Komentar...">{{old('message')}}</textarea>
+                        @error('message')
+                            <div class="invalid-feedback">
+                                {{$message}}
+                            </div>
+                        @enderror
                     </div>
-                    <div class="my-3">
-                        <div class="loading">Loading</div>
-                        <div class="error-message"></div>
-                        <div class="sent-message">Your message has been sent. Thank you!</div>
-                    </div>
+                    
                     <div class="text-center"><button type="submit">Send Message</button></div>
                 </form>
             </div>
         </div>
     </div>
 </section>
+@include('sweetalert::alert')
 @endsection
