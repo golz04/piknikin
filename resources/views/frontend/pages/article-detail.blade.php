@@ -3,8 +3,8 @@
 <section class="d-flex align-items-center text-black  section-bg">
     <div class="container" data-aos="zoom-out" data-aos-delay="100">
         <div class="custom-hero-detail-article">
-            <h1 class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span></h1>
-            <p class="my-3 ">23 04 2023 - 0 Komentar</p>
+            <h1 class="text-center">{{$getDetail->title}}</span></h1>
+            <p class="my-3 ">{{ \Carbon\Carbon::parse($getDetail->date_post)->format('D, d F Y') }} - {{$countComment}} Komentar</p>
         </div>
     </div>
 </section>
@@ -16,34 +16,45 @@
             <div class="col-md-9">
                 <div class="row">
                     <div class="col-md-12">
-                        <img class="img-fluid" src="https://via.placeholder.com/950x500" alt="">
-                        <p class="mt-3" style="text-align: justify;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde quia maiores ex voluptatum culpa hic laudantium obcaecati eos natus saepe temporibus impedit illum perspiciatis corrupti doloribus quidem earum, fuga quam, iusto cum aperiam ducimus! Perferendis, excepturi voluptatum, aut quibusdam, voluptatibus laboriosam non quos error ipsum illum hic exercitationem culpa quasi rerum tempore explicabo beatae. Odio, perspiciatis tempore! Nihil rerum nisi, doloremque, magnam natus nobis sit, nostrum impedit ratione totam accusamus in blanditiis aliquid quod soluta odit molestias architecto veritatis. Omnis, reprehenderit aperiam? Voluptate doloribus cum quibusdam, dicta nisi dolor velit nam vel nesciunt voluptas nulla iure totam deleniti dolore. Autem, explicabo mollitia, similique eaque odio praesentium quo cum nam minima doloribus fugit ab soluta sunt, dolore illum inventore. Nemo magnam unde cupiditate ipsum quisquam, voluptatum iure corporis eos ab necessitatibus possimus et distinctio incidunt libero aliquid numquam blanditiis eum impedit in amet itaque. Ducimus illo quibusdam doloremque natus provident rerum, maiores facere quas modi assumenda sunt et corporis tempora consequatur cumque labore nostrum dolore id minus fuga accusantium? Molestias, iste minima? Exercitationem ea dignissimos officiis placeat? Quam aut at minus quidem nesciunt rerum reiciendis repellat, quaerat necessitatibus, dolorum maxime explicabo deserunt, assumenda praesentium suscipit accusantium. Ducimus placeat consectetur atque soluta, molestiae odio numquam quaerat dolorem, corporis aspernatur ab voluptatum exercitationem laboriosam quam neque excepturi voluptatibus quod modi impedit. Fuga ipsam esse architecto, dolor reiciendis hic placeat officia quam nihil officiis, atque harum cum, repellat nemo rem! Distinctio vitae ullam aliquid dolor, voluptates asperiores eum, libero hic ratione soluta ea repudiandae laudantium ab commodi a accusamus in delectus. Quis sapiente id beatae eum. Voluptas, nam officia! Repellendus quibusdam magni optio temporibus odio velit, natus asperiores odit recusandae delectus vero expedita magnam, nostrum unde. Ratione nihil voluptatibus ullam. Hic quos nulla optio ipsum expedita, voluptatem modi at eveniet nihil eaque nesciunt sequi maiores a laboriosam corporis libero doloribus sunt quaerat voluptas reprehenderit itaque necessitatibus et. Facilis similique voluptatem veniam quis beatae impedit a repellendus aliquid, nisi exercitationem dignissimos excepturi qui fugiat. Repellendus placeat temporibus ducimus eaque, harum alias voluptatem officiis. Odit optio nemo tempora, maiores cupiditate veritatis et illum autem nesciunt dignissimos excepturi fuga voluptatibus doloribus eligendi dicta aspernatur voluptas libero ut laboriosam a neque. Laudantium, accusantium provident adipisci nihil beatae minus blanditiis voluptates a error optio eligendi vero repudiandae aperiam. Officiis, voluptates. Neque hic provident totam vero consequuntur a quo sequi cupiditate nulla esse sapiente, error iusto repudiandae corrupti pariatur unde! Adipisci omnis cumque illo totam molestiae ipsa sequi cum rerum iste ad? Perferendis cupiditate inventore quo aliquid quae nulla soluta fuga, hic eligendi distinctio culpa voluptas. Quod molestias architecto repellat nesciunt excepturi harum numquam ut fugit, eos minima temporibus quis illum perferendis? Eum ut optio quas cum? Iste, possimus maiores eum officia ipsa pariatur adipisci accusantium fuga exercitationem, perferendis optio ad placeat quibusdam inventore eligendi nesciunt aspernatur? Provident repellendus tempore non iste aliquam odit. Dolor quo delectus, laudantium laborum sapiente nobis eaque voluptate dicta labore recusandae dolorum placeat assumenda commodi eius qui quae vitae aliquam provident a voluptatem dolore mollitia.</p>
+                        <img class="img-fluid" src="{{asset('assets/upload/article/'.$getDetail->thumbnail)}}" alt="">
+                        <p class="mt-3" style="text-align: justify;">{!!$getDetail->description!!}</p>
                     </div>
                     <div class="col-md-12">
                         <section id="rate" class="contact">
                             <div class="container" data-aos="fade-up">
-                                <form action="#" method="post" role="form" class="php-email-form">
+                                <form action="{{url('article/detail/send/'.$getDetail->slug)}}" method="post" role="form" class="php-email-form">
+                                    @csrf
                                     <div class="row text-center mb-3">
                                         <h2><strong>Tulis Komentarmu</strong></h2>
                                     </div>
                                     <div class="row">
                                         <div class="col form-group">
-                                            <label style="font-size: 11pt; margin-left: 3px; margin-bottom: 3px;" for="name">Nama Lengkap :</label>
-                                            <input type="text" name="name" class="form-control" id="name" placeholder="Nama Lengkap" required>
+                                            <label style="font-size: 11pt; margin-left: 3px; margin-bottom: 3px;" for="full_name">Nama Lengkap :</label>
+                                            <input type="text" name="full_name" class="form-control @error('full_name') is-invalid @enderror" id="full_name" placeholder="Nama Lengkap" value="{{old('full_name')}}">
+                                            @error('full_name')
+                                                <div class="invalid-feedback">
+                                                    {{$message}}
+                                                </div>
+                                            @enderror
                                         </div>
                                         <div class="col form-group">
                                             <label style="font-size: 11pt; margin-left: 3px; margin-bottom: 3px;" for="email">Surel :</label>
-                                            <input type="email" class="form-control" name="email" id="email" placeholder="Surel" required>
+                                            <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" id="email" placeholder="Surel" value="{{old('email')}}">
+                                            @error('email')
+                                                <div class="invalid-feedback">
+                                                    {{$message}}
+                                                </div>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label style="font-size: 11pt; margin-left: 3px; margin-bottom: 3px;" for="comment">Komentar :</label>
-                                        <textarea class="form-control" name="comment" rows="5" placeholder="Komentar..." required></textarea>
-                                    </div>
-                                    <div class="my-3">
-                                        <div class="loading">Loading</div>
-                                        <div class="error-message"></div>
-                                        <div class="sent-message">Your message has been sent. Thank you!</div>
+                                        <label style="font-size: 11pt; margin-left: 3px; margin-bottom: 3px;" for="message">Komentar :</label>
+                                        <textarea class="form-control @error('message') is-invalid @enderror" name="message" rows="5" placeholder="Komentar...">{{old('message')}}</textarea>
+                                        @error('message')
+                                            <div class="invalid-feedback">
+                                                {{$message}}
+                                            </div>
+                                        @enderror
                                     </div>
                                     <div class="text-center"><button type="submit">Kirim Komentar</button></div>
                                 </form>
@@ -55,38 +66,56 @@
 
             <div class="col-md-3">
                 <div class="row sticky-top" style="padding-top: 100px;">
+                    @forelse ($getPacket as $item)
                     <div class="col-md-12 d-flex align-items-stretch">
                         <div class="custom-card-packet">
                             <div class="custom-card-packet-img">
                                 <div style="height: 250px;">
-                                    <img src="{{asset('assets/upload/packet/kawah-ijen.jpeg')}}" class="img-fluid w-100 h-100" alt="">
+                                    <img src="{{asset('assets/upload/packet/'.$item->thumbnail)}}" class="img-fluid w-100 h-100" alt="">
                                 </div>
                                 <div class="social">
-                                    <a href="{{url('/tour-packages/detail')}}"><i class="bi bi-eye"></i></a>
+                                    <a href="{{url('/tour-packages/detail/'.$item->slug)}}"><i class="bi bi-eye"></i></a>
                                 </div>
                             </div>
                             <div class="custom-card-packet-info">
-                                <h4>Paket Wisata 4 Hari 3 Malam</h4>
-                                <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus, alias?</span>
+                                <h4>{{$item->title}}</h4>
+                                <span>{{ \Illuminate\Support\Str::limit($item->description, 100, $end='...') }}</span>
                             </div>
                         </div>
                     </div>
-        
-                    <div class="col-md-12 d-flex align-items-stretch">
-                        <div class="custom-card-packet">
-                            <div class="custom-card-packet-img">
-                                <div style="height: 250px;">
-                                    <img src="{{asset('assets/upload/packet/baluran.jpg')}}" class="img-fluid w-100 h-100" alt="">
-                                </div>
-                                <div class="social">
-                                    <a href="{{url('/tour-packages/detail')}}"><i class="bi bi-eye"></i></a>
-                                </div>
+                    @empty
+                    @endforelse
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5 px-4" data-aos="fade-up">
+        <div class="row border rounded shadow-sm">
+            <div class="card-body p-4">
+                <h4 class="text-center mb-4 pb-2">Komentar</h4>
+                <div class="row">
+                    <div class="col">
+                        @foreach ($getComment as $item)
+                        <div class="d-flex flex-start">
+                            <div class="rounded-circle shadow-1-strong me-3" style="width: 65px; height: 65px; background: #106eea; display: flex; align-items: center; justify-content: center; color: white;">
+                                <span><b>{{ \Illuminate\Support\Str::limit($item->name, 1, $end='') }}</b></span>
                             </div>
-                            <div class="custom-card-packet-info">
-                                <h4>Paket Wisata 3 Hari 2 Malam</h4>
-                                <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus, alias?</span>
+                            <div class="flex-grow-1 flex-shrink-1">
+                                <div>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <p class="mb-1">
+                                        {{$item->name}} <span class="small">- {{ \Carbon\Carbon::parse($item->created_at)->format('D, d F Y') }}</span>
+                                        </p>
+                                    </div>
+                                    <p class="small mb-0">
+                                        {{$item->message}}
+                                    </p>
+                                </div>
                             </div>
                         </div>
+                        {!!$loop->last ? '' : '<hr>'!!}
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -110,4 +139,5 @@
         </div>
     </div>
 </section>
+@include('sweetalert::alert')
 @endsection

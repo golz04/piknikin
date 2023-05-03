@@ -25,7 +25,8 @@ Route::post('/tour-packages/request/send', [App\Http\Controllers\Frontend\TourPa
 Route::get('/promo', [App\Http\Controllers\Frontend\PromoController::class, 'index']);
 Route::get('/promo/detail', [App\Http\Controllers\Frontend\PromoController::class, 'detail']);
 Route::get('/article', [App\Http\Controllers\Frontend\ArticleController::class, 'index']);
-Route::get('/article/detail', [App\Http\Controllers\Frontend\ArticleController::class, 'detail']);
+Route::get('/article/detail/{slug}', [App\Http\Controllers\Frontend\ArticleController::class, 'detail']);
+Route::post('/article/detail/send/{slug}', [App\Http\Controllers\Frontend\ArticleController::class, 'comment']);
 Route::get('/about-us', [App\Http\Controllers\Frontend\AboutController::class, 'index']);
 
 // Start BE
