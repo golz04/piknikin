@@ -3,7 +3,7 @@
 <section id="hero" class="d-flex align-items-center" style="background-size: cover; background-image: url('{{ asset('assets/frontend/img/hero-tour-package.jpg')}}');">
     <div class="container" data-aos="zoom-out" data-aos-delay="100">
         <h1 class="text-white">Paket Wisata Piknik<span>In.</span></h1>
-        <p class="my-3 text-white">Paket wisata PiknikIn merupakan lorem ipsum dolor sit amet consectetur adipisicing elit. Quod sequi cumque veniam eius autem corporis numquam, odio enim amet cum totam explicabo voluptas ducimus facere eos distinctio, dolore error quasi?</p>
+        <p class="my-3 text-white">Piknikin Banyuwangi menyediakan banyak paket wisata dengan berbagai macam fasilitas dan beragam destinasi unggulan yang ada di Banyuwangi. Paket-paket ini telah di susun sesuai dengan pengalaman-pengalaman berwisata yang menarik, mau pilih paket yang manapun, sesuaikan dengan kebutuhan dan minat Anda!</p>
     </div>
 </section>
 @endsection

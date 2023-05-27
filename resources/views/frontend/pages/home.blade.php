@@ -10,7 +10,7 @@
 
     <div class="container" data-aos="zoom-out" data-aos-delay="100">
         <h1 class="text-white">Selamat Datang di Piknik<span>In.</span></h1>
-        <p class="my-3 text-white">PiknikIn merupakan lorem ipsum dolor sit amet consectetur adipisicing elit. Quod sequi cumque veniam eius autem corporis numquam, odio enim amet cum totam explicabo voluptas ducimus facere eos distinctio, dolore error quasi?</p>
+        <p class="my-3 text-white">Selamat datang di Piknikin Banyuwangi! Piknikin Banyuwangi adalah Tour dan Travel terbaik dengan fasilitas terlengkap dan harga terjangkau dengan pelayanan yang ramah serta menyenangkan.</p>
         <div class="d-flex">
             <a href="{{url('/about-us')}}" class="btn-get-started scrollto">Tentang Kami</a>
             <a href="https://www.youtube.com/watch?v=4JxEhPaDbWM" class="glightbox btn-watch-video text-white"><i class="bi bi-play-circle"></i><span>Tentang Banyuwangi</span></a>
@@ -24,7 +24,7 @@
         <div class="section-title">
             <h2>#Tentang-Kami</h2>
             <h3>Alasan Mengapa Kamu Memilih <span>Kami</span></h3>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum, aliquid. Aut magnam cumque eaque voluptatem atque, nihil suscipit?.</p>
+            <p>PiknikIn Banyuwangi menghadirkan destinasi wisata yang unik dan berbeda dari yang lain. Kami selalu mencari lokasi yang jarang dikunjungi, sehingga Anda dapat menikmati pengalaman yang segar dan tak terlupakan.</p>
         </div>
 
         <div class="row">
@@ -36,7 +36,7 @@
                     <h4 class="title">
                         <span>Legalitas & Terpercaya</span>
                     </h4>
-                    <p class="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit, mollitia.</p>
+                    <p class="description">Kami memiliki izin resmi dan terdaftar sebagai Tour and Travel yang diakui oleh otoritas terkait.</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
@@ -47,7 +47,7 @@
                     <h4 class="title">
                         <span>Sesuai Kebutuhan Anda</span>
                     </h4>
-                    <p class="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus, mollitia.</p>
+                    <p class="description">Kami menawarkan fleksibilitas dalam memilih dan menyesuaikan paket wisata sesuai dengan kebutuhan Anda.</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
@@ -58,7 +58,7 @@
                     <h4 class="title">
                         <span>Spesialis Trip</span>
                     </h4>
-                    <p class="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus, mollitia.</p>
+                    <p class="description">Kami memiliki pengetahuan mendalam tentang destinasi wisata di daerah ini dan tempat-tempat budaya yang menarik.</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
@@ -69,7 +69,7 @@
                     <h4 class="title">
                         <span>Pelayanan Terbaik</span>
                     </h4>
-                    <p class="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus, mollitia.</p>
+                    <p class="description">Kami memberikan pelayanan dan perhatian yang maksimal kepada setiap pelanggan kami.</p>
                 </div>
             </div>
         </div>
@@ -81,7 +81,7 @@
         <div class="section-title">
             <h2>#Paket-Wisata</h2>
             <h3>Paket Wisata Yang Ditawarkan Piknik<span>In.</span></h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est reprehenderit ipsum illo aperiam deleniti eligendi nobis quisquam, architecto velit corporis voluptatum in. Laboriosam odit voluptates, ex veniam ut rerum veritatis.</p>
+            <p>Piknikin Banyuwangi menyediakan banyak paket wisata dengan berbagai macam fasilitas dan beragam destinasi unggulan yang ada di Banyuwangi. Paket-paket ini telah di susun sesuai dengan pengalaman-pengalaman berwisata yang menarik, mau pilih paket yang manapun, sesuaikan dengan kebutuhan dan minat Anda!</p>
         </div>
 
         <div class="row">
@@ -120,7 +120,7 @@
             <div class="col-md-8 d-flex align-items-center">
                 <div>
                     <h3 class="fw-bold" style="text-align: left">Masih Beleum Menemukan Apa Yang Kamu Cari?</h3>
-                    <p style="text-align: left">Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, eaque.</p>
+                    <p style="text-align: left">Kamu bisa membuat paket wisata impianmu sendiri, ayo segera buat!</p>
                 </div>
             </div>
             <div class="col-md-4 d-flex align-items-center justify-content-center">
@@ -137,7 +137,7 @@
         <div class="section-title">
             <h2>#Destinasi</h2>
             <h3>Galeri Destinasi Piknik<span>In.</span></h3>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora, in.</p>
+            <p>Potret wisata, budaya dan alam Banyuwangi dalam kaca Piknikin.</p>
         </div>
         
         <div class="row gallery">
@@ -160,7 +160,7 @@
         <div class="section-title">
             <h2>#Artikel</h2>
             <h3>Artikel Piknik<span>In.</span></h3>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequuntur, nam.</p>
+            <p>Banyuwangi selalu hadir dengan berita wisata dan budaya terbaru loh, jangan lupa disimak bersama Piknikin!</p>
         </div>
 
         <div class="row">

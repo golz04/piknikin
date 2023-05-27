@@ -3,7 +3,7 @@
 <section id="hero" class="d-flex align-items-center" style="background-size: cover; background-image: url('{{ asset('assets/frontend/img/hero-tour-package-request.jpg')}}');">
     <div class="container" data-aos="zoom-out" data-aos-delay="100">
         <h1 class="text-white">Buat Tourmu Sendiri di Piknik<span>In.</span></h1>
-        <p class="my-3 text-white">PiknikIn merupakan lorem ipsum dolor sit amet consectetur adipisicing elit. Quod sequi cumque veniam eius autem corporis numquam, odio enim amet cum totam explicabo voluptas ducimus facere eos distinctio, dolore error quasi?</p>
+        <p class="my-3 text-white">Kamu bisa membuat paket wisata impianmu sendiri, ayo segera buat!</p>
     </div>
 </section>
 @endsection

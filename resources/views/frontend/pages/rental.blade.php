@@ -3,7 +3,7 @@
 <section id="hero" class="d-flex align-items-center" style="background-size: cover; background-image: url('{{ asset('assets/frontend/img/hero-rental.jpg')}}');">
     <div class="container" data-aos="zoom-out" data-aos-delay="100">
         <h1 class="text-white">Rental Kendaraan Piknik<span>In.</span></h1>
-        <p class="my-3 text-white">Rental kendaraan PiknikIn merupakan lorem ipsum dolor sit amet consectetur adipisicing elit. Quod sequi cumque veniam eius autem corporis numquam, odio enim amet cum totam explicabo voluptas ducimus facere eos distinctio, dolore error quasi?</p>
+        <p class="my-3 text-white">Kami menyediakan berbagai jenis kendaraan untuk disewa, mulai dari mobil, motor, hingga sepeda. Anda dapat memilih kendaraan yang sesuai dengan kebutuhan perjalanan Anda, baik untuk kelompok besar atau perjalanan solo.</p>
     </div>
 </section>
 @endsection

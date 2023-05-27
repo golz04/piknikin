@@ -18,11 +18,11 @@
                 <div class="col-lg-3 col-md-6 footer-contact">
                     <h3>Piknik<span>In.</span></h3>
                     <p>
-                        Perum Mastrip <br>
-                        Blok P No 4, 62161<br>
-                        Indonesia <br><br>
-                        <strong>Phone:</strong> +62 812 5999 5788<br>
-                        <strong>Email:</strong> piknikin@gmail.com<br>
+                        Perumahan Green Brawijaya, <br>
+                        B-03, Banyuwangi,<br>
+                        Jawa Timur 68417, Indonesia <br><br>
+                        <strong>Phone:</strong> +62 821 4311 0959<br>
+                        <strong>Email:</strong> transwangilestari@gmail.com<br>
                     </p>
                 </div>
 
@@ -51,10 +51,10 @@
                     <h4>Tentang Sosial Media Kami.</h4>
                     <p>Klik link dibawah ini untuk mengetahui keseruan kami melalui sosial media kami.</p>
                     <div class="social-links mt-3">
-                        <a href="https://twitter.com/" class="twitter"><i class="bx bxl-twitter"></i></a>
-                        <a href="https://facebook.com/" class="facebook"><i class="bx bxl-facebook"></i></a>
-                        <a href="https://instagram.com/" class="instagram"><i class="bx bxl-instagram"></i></a>
-                        <a href="https://linkedin.com/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                        {{-- <a href="https://twitter.com/" class="twitter"><i class="bx bxl-twitter"></i></a>
+                        <a href="https://facebook.com/" class="facebook"><i class="bx bxl-facebook"></i></a> --}}
+                        <a href="https://www.instagram.com/piknikinbanyuwangi/" class="instagram"><i class="bx bxl-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/pt-transwangi-lestari/about/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
                     </div>
                 </div>
             </div>

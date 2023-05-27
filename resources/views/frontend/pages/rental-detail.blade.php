@@ -16,8 +16,11 @@
             </div>
             <div class="col-md-4">
                 <div class="row">
-                    <div class="col-md-12">
-                        <a href="{{url('/call')}}" class="rounded-2 btn btn-outline-success m-auto">Chat Via Whatsapp</a>
+                    <div class="col-md-6">
+                        <a href="https://api.whatsapp.com/send?phone=6282143110959&text=Halo%20PiknikIn%20Banyuwangi!" class="rounded-2 btn btn-outline-success m-auto">Chat Whatsapp 1</a>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="https://api.whatsapp.com/send?phone=6281259846669&text=Halo%20PiknikIn%20Banyuwangi!" class="rounded-2 btn btn-outline-success m-auto">Chat Whatsapp 2</a>
                     </div>
                 </div>
                 <h3 class="my-3">Tipe dan Harga Sewa</h3>
