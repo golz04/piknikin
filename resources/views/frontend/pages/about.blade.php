@@ -35,7 +35,7 @@
         </div>
         <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
             <div class="swiper-wrapper">
-                @foreach ($getTestimonial as $item)
+                @forelse($getTestimonial as $item)
                 <div class="swiper-slide">
                     <div class="testimonial-item">
                         <img src="{{asset('assets/upload/testimonial/'.$item->avatar)}}" class="testimonial-img" alt="">
@@ -48,7 +48,17 @@
                         </p>
                     </div>
                 </div>
-                @endforeach
+                @empty
+                <div class="swiper-slide">
+                    <div class="testimonial-item">
+                        <p>
+                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                            Belum ada Ulasan.
+                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                        </p>
+                    </div>
+                </div>
+                @endforelse
             </div>
             <div class="swiper-pagination"></div>
         </div>
